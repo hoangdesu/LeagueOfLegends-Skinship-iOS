@@ -7,148 +7,182 @@
 
 import SwiftUI
 
+var champions = decodeJsonFromFile(jsonFileName: "champions.json")
+
 struct GameView: View {
     
     // MARK: - PROPERTIES
     
     let haptics = UINotificationFeedbackGenerator()
     
-    let tiles = ["Zed_0", "Ahri_0", "Yasuo_0", "Zoe_0", "Zyra_0"]
-    let loadings = ["Zed_31", "Ezreal_25", "Draven_13", "Darius_8", "Caitlyn_29", "Ahri_5"]
     
-    @State var champions: [Champion]
-//    @State var currentChamp: Champion
     
-    var myChamp: Champion {
-        return champions[Int.random(in: 0..<champions.count)]
+    @State var currentChamp: Champion
+    
+    var choices: [Champion] {
+        //        var randomChoices = [currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!]
+        
+        //        reels = reels.map({ _ in
+        //            Int.random(in: 0...icons.count - 1)
+        //        })
+//
+        var randomChoices: [Champion] = []
+        
+        for _ in 0..<4 {
+            var randChamp = champions.randomElement()!
+//            for champ in randomChoices {
+//                if champ.id == randChamp.id {
+//                    randChamp = champions.randomElement()!
+//                    print("duplicated")
+//                }
+//            }
+            randomChoices.append(randChamp)
+        }
+        
+        let randInd = Int.random(in: 0..<4)
+        print("RANDOM INDEX: \(randInd)")
+        
+        randomChoices[randInd] = currentChamp
+//
+//
+        
+//        var randomChoices = [currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!].shuffled()
+//
+//
+            
+//        for c in randomChoices {
+//            print("RANDOM CHOICES: \(c.name)")
+//        }
+                    
+        
+        return randomChoices
     }
+    
+   
     
     
     // MARK: - GAME INIT STATE
-    init() {
-        champions = decodeJsonFromFile(jsonFileName: "champions.json")
-//        for champion in champions {
-//            print(champion)
-//        }
-//        self.currentChamp = getChamp()
+    init(firstChamp: Champion) {
+//
+        _currentChamp = State(initialValue: firstChamp)
+        print("CURRENT CHAMP INIT: \(currentChamp.name)")
+        
     }
     
     
     
     // MARK: - FUNCTIONS
     
-    func buttonTapHandler(answer: String) {
-        print("\(answer)")
-        let removedChamp = self.champions.remove(at: Int.random(in: 0..<champions.count))
-        print(removedChamp)
-        print(champions.count)
-        print(myChamp.defaultSkin)
+    func buttonTapHandler(choice: Champion) {
+        print("CHOICE: \(choice.name)")
+        //        let removedChamp = self.champions.remove(at: Int.random(in: 0..<champions.count))
+        //        print(removedChamp)
+//        print(champions.count)
+//        print(currentChamp.defaultSkin)
         
-//        champions.remove
+        //        champions.remove
+        
+        currentChamp = getCurrentChamp()
+        print("CURRENT CHAMP: \(currentChamp.name)")
         
     }
     
-//    private static func getChamp() -> Champion {
-//        return self.champions.remove(at: Int.random(in: 0..<champions.count))
-//    }
+    func getRandomSkinFromCurrentChamp(champ: Champion) -> String {
+        return champ.skins.randomElement()!.loading
+    }
     
-    
-    
-    func test() {
-        let fm = FileManager.default
-        var path = Bundle.main.resourcePath!
-        
-        print(path)
-        
-        do {
-            let items = try fm.contentsOfDirectory(atPath: path)
-            
-            for item in items {
-                print("Found \(item)")
-                
-            }
-        } catch {
-            // failed to read directory – bad permissions, perhaps?
-        }
+    func getCurrentChamp() -> Champion {
+        let randomIndex = Int.random(in: 0..<champions.count)
+        let randomChamp = champions[randomIndex]
+        print("RANDOM CHAMP: \(randomChamp.name)")
+        return randomChamp
     }
     
     
-//    func
     
     
+    //
+    //    func test() {
+    //        let fm = FileManager.default
+    //        var path = Bundle.main.resourcePath!
+    //
+    //        print(path)
+    //
+    //        do {
+    //            let items = try fm.contentsOfDirectory(atPath: path)
+    //
+    //            for item in items {
+    //                print("Found \(item)")
+    //
+    //            }
+    //        } catch {
+    //            // failed to read directory – bad permissions, perhaps?
+    //        }
+    //    }
     
     
-    func rollAnswer() {
-        var choices = [tiles.randomElement(), tiles.randomElement(), tiles.randomElement(), tiles.randomElement()]
-    }
+    //    func
+    
     
     
     
     // MARK: - VIEW
     var body: some View {
-        var choices = [tiles.randomElement(), tiles.randomElement(), tiles.randomElement(), tiles.randomElement()]
         
         ZStack {
-            
             Image("SR")
                 .ignoresSafeArea(.all)
                 .opacity(0.9)
                 .blur(radius: 4)
             
             
-            
-            
             VStack {
                 
+                //                PlayCardView()
                 
-                
-//                PlayCardView()
-                
-                Image(myChamp.skins[0].loading)
+                Image(currentChamp.skins.randomElement()!.loading)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 400)
-//                    .cornerRadius(6)
+                //                    .cornerRadius(6)
                     .padding()
-                    
+                
                 
                 VStack(spacing: 30) {
                     HStack {
                         Button {
                             
                             
-                            
-                            buttonTapHandler(answer: choices[0]!)
+                            buttonTapHandler(choice: choices[0])
                         } label: {
-                            AnswerImageWrapper(image: choices[0]!)
+                            AnswerImageWrapper(image: choices[0].defaultSkin)
                         }
                         
                         Spacer()
                             .frame(width: 50)
                         
                         Button {
-                            buttonTapHandler(answer: choices[1]!)
+                            buttonTapHandler(choice: choices[1])
                         } label: {
-                            AnswerImageWrapper(image: choices[1]!)
+                            AnswerImageWrapper(image: choices[1].defaultSkin)
                         }
                     }
                     
-                    
                     HStack {
                         Button {
-                            buttonTapHandler(answer: choices[2]!)
+                            buttonTapHandler(choice: choices[2])
                         } label: {
-                            AnswerImageWrapper(image: choices[2]!)
+                            AnswerImageWrapper(image: choices[2].defaultSkin)
                         }
                         
                         Spacer()
                             .frame(width: 50)
                         
                         Button {
-                            buttonTapHandler(answer: choices[3]!)
+                            buttonTapHandler(choice: choices[3])
                             
                         } label: {
-                            AnswerImageWrapper(image: choices[3]!)
+                            AnswerImageWrapper(image: choices[3].defaultSkin)
                         }
                     }
                 }
@@ -161,10 +195,19 @@ struct GameView: View {
         
         
     }
+    
+    
 }
 
-struct GameView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView()
+
+extension Array {
+    func contains<T>(obj: T) -> Bool where T: Equatable {
+        return !self.filter({$0 as? T == obj}).isEmpty
     }
 }
+
+//struct GameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameView(firstChamp: champions)
+//    }
+//}
