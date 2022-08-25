@@ -20,7 +20,7 @@ struct GameView: View {
 //    @State var currentChamp: Champion
     
     var myChamp: Champion {
-        return champions[0]
+        return champions[Int.random(in: 0..<champions.count)]
     }
     
     
@@ -42,6 +42,7 @@ struct GameView: View {
         let removedChamp = self.champions.remove(at: Int.random(in: 0..<champions.count))
         print(removedChamp)
         print(champions.count)
+        print(myChamp.defaultSkin)
         
 //        champions.remove
         
@@ -99,14 +100,16 @@ struct GameView: View {
             
             VStack {
                 
-//                Image(loadings[j])
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(height: 400)
-////                    .cornerRadius(6)
-//                    .padding()
                 
-                PlayCardView()
+                
+//                PlayCardView()
+                
+                Image()
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 400)
+//                    .cornerRadius(6)
+                    .padding()
                     
                 
                 VStack(spacing: 30) {

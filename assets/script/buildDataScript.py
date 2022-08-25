@@ -22,7 +22,7 @@ with open('championFull.json') as file:
         id = data[champion]['id']
         name = data[champion]['name']
         title = data[champion]['title'].title() 
-        defaultSkin = f'{id}_0.jpg'
+        defaultSkin = f'{id}_0'
 
         skins = data[champion]['skins']  
         
@@ -39,7 +39,7 @@ with open('championFull.json') as file:
             filtered_skins.append({
                 'id': int(skin['id']),
                 'name': skin['name'],
-                'loading': f'{id}_{skin["num"]}.jpg'
+                'loading': f'{id}_{skin["num"]}'
             })
         
         # print(filtered_skins)
