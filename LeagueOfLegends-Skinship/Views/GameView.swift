@@ -104,7 +104,7 @@ struct GameView: View {
                 
 //                PlayCardView()
                 
-                Image()
+                Image(myChamp.skins[0].loading)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 400)
