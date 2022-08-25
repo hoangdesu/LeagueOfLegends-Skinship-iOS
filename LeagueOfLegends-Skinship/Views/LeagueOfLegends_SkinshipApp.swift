@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct LeagueOfLegends_SkinshipApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            GameView()
         }
     }
 }
