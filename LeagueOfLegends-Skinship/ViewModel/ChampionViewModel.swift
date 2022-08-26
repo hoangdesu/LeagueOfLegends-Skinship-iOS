@@ -91,7 +91,7 @@ class ChampionViewModel: ObservableObject {
         self.generate4RandomChoices()
         self.score = 0
         
-//        playSound(sound: "summonersRift", type: "mp3", volume: self.backgroundMusicVolume)
+        playBackgroundMusic()
     }
     
     func getRandomSkinFromCurrentChamp() -> String {

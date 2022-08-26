@@ -64,6 +64,7 @@ struct VolumeSlider: View {
             
         } onEditingChanged: { hasChanged in
             self.hasChanged = hasChanged
+            backgroundMusicPlayer?.setVolume(Float(self.champVM.backgroundMusicVolume), fadeDuration: 0)
         }
 
     }

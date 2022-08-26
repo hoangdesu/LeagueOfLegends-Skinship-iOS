@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */; };
-		29E7822628B6E096003CB537 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7822528B6E096003CB537 /* ContentView.swift */; };
 		29E7822828B6E099003CB537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E7822728B6E099003CB537 /* Assets.xcassets */; };
 		29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E7822A28B6E099003CB537 /* Preview Assets.xcassets */; };
 		29E7823528B6E099003CB537 /* LeagueOfLegends_SkinshipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7823428B6E099003CB537 /* LeagueOfLegends_SkinshipTests.swift */; };
@@ -27,6 +26,11 @@
 		29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */; };
 		29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */ = {isa = PBXBuildFile; fileRef = 29E7829228B9372E003CB537 /* TODO-Checklist.md */; };
 		29E7829728B93E69003CB537 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829628B93E67003CB537 /* Extensions.swift */; };
+		29E7829928B9566E003CB537 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829828B9566E003CB537 /* Player.swift */; };
+		29E7829B28B96405003CB537 /* InfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829A28B96405003CB537 /* InfoSheetView.swift */; };
+		29E7829D28B964D5003CB537 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829C28B964D5003CB537 /* VolumeSlider.swift */; };
+		29E7829F28B977A7003CB537 /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829E28B977A7003CB537 /* CoverView.swift */; };
+		29E782A128B97CBB003CB537 /* summonersRift.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29E782A028B97CBB003CB537 /* summonersRift.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +53,6 @@
 /* Begin PBXFileReference section */
 		29E7822028B6E096003CB537 /* LoL Skinship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoL Skinship.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueOfLegends_SkinshipApp.swift; sourceTree = "<group>"; };
-		29E7822528B6E096003CB537 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29E7822728B6E099003CB537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29E7822A28B6E099003CB537 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		29E7823028B6E099003CB537 /* LeagueOfLegends-SkinshipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LeagueOfLegends-SkinshipTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +73,11 @@
 		29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionViewModel.swift; sourceTree = "<group>"; };
 		29E7829228B9372E003CB537 /* TODO-Checklist.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "TODO-Checklist.md"; sourceTree = SOURCE_ROOT; };
 		29E7829628B93E67003CB537 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		29E7829828B9566E003CB537 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		29E7829A28B96405003CB537 /* InfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetView.swift; sourceTree = "<group>"; };
+		29E7829C28B964D5003CB537 /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
+		29E7829E28B977A7003CB537 /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
+		29E782A028B97CBB003CB537 /* summonersRift.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = summonersRift.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +171,8 @@
 			children = (
 				29E7825028B6E4AF003CB537 /* Components */,
 				29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */,
-				29E7822528B6E096003CB537 /* ContentView.swift */,
 				29E7827828B78D35003CB537 /* GameView.swift */,
+				29E7829A28B96405003CB537 /* InfoSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 		29E7824E28B6E47B003CB537 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				29E782A028B97CBB003CB537 /* summonersRift.mp3 */,
 				29E7827428B786BC003CB537 /* mia.wav */,
 			);
 			path = Sounds;
@@ -183,6 +192,7 @@
 				29E7828628B7FAE1003CB537 /* champions.json */,
 				29E7827C28B7A9C0003CB537 /* Champion.swift */,
 				29E7827F28B7AA67003CB537 /* ModelData.swift */,
+				29E7829828B9566E003CB537 /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +202,8 @@
 			children = (
 				29E7825628B6E7C8003CB537 /* AnswerImageWrapper.swift */,
 				29E7827A28B78E05003CB537 /* PlayCardView.swift */,
+				29E7829C28B964D5003CB537 /* VolumeSlider.swift */,
+				29E7829E28B977A7003CB537 /* CoverView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -338,6 +350,7 @@
 				29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */,
 				29E7827528B786BC003CB537 /* mia.wav in Resources */,
 				29E7828528B7F869003CB537 /* buildDataScript.py in Resources */,
+				29E782A128B97CBB003CB537 /* summonersRift.mp3 in Resources */,
 				29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */,
 				29E7822828B6E099003CB537 /* Assets.xcassets in Resources */,
 			);
@@ -366,15 +379,18 @@
 			files = (
 				29E7827D28B7A9C0003CB537 /* Champion.swift in Sources */,
 				29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */,
-				29E7822628B6E096003CB537 /* ContentView.swift in Sources */,
 				29E7828028B7AA67003CB537 /* ModelData.swift in Sources */,
+				29E7829928B9566E003CB537 /* Player.swift in Sources */,
 				29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */,
 				29E7827728B78700003CB537 /* AudioPlayer.swift in Sources */,
 				29E7825328B6E519003CB537 /* Modifiers.swift in Sources */,
+				29E7829D28B964D5003CB537 /* VolumeSlider.swift in Sources */,
+				29E7829F28B977A7003CB537 /* CoverView.swift in Sources */,
 				29E7827928B78D35003CB537 /* GameView.swift in Sources */,
 				29E7827B28B78E05003CB537 /* PlayCardView.swift in Sources */,
 				29E7829728B93E69003CB537 /* Extensions.swift in Sources */,
 				29E7825728B6E7C8003CB537 /* AnswerImageWrapper.swift in Sources */,
+				29E7829B28B96405003CB537 /* InfoSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

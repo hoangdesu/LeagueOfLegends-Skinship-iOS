@@ -21,14 +21,7 @@ struct InfoSheetView: View {
                 Section(header: Text("Settings")) {
                     Text("Background music volume: \(Int(self.champVM.backgroundMusicVolume / 1.0 * 100))")
                     VolumeSlider(champVM: self.champVM)
-                    Button(action: {
-                        audioPlayer?.setVolume(Float(self.champVM.backgroundMusicVolume), fadeDuration: 0)
-                    }, label: {
-                        Text("Change volume")
-                        
-                    })
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-
+                    
                            
                     
                 }
@@ -70,7 +63,7 @@ struct InfoSheetView: View {
         )
         .onAppear(perform: {
 //            playSound(sound: "background-music", type: "mp3")
-            playSound(sound: "summonersRift", type: "mp3", volume: self.champVM.backgroundMusicVolume)
+//            playSound(sound: "summonersRift", type: "mp3", volume: self.champVM.backgroundMusicVolume)
         })
     }
 }
