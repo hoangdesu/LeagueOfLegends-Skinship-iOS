@@ -25,7 +25,7 @@ struct GameView: View {
 //        self.champVM.generate4RandomChoices()
 //        self.champVM.generateNextChamp()
         
-        self.champVM.gamePlayController()
+        self.champVM.gamePlayController(choice: choice)
         
         
     }
@@ -44,9 +44,9 @@ struct GameView: View {
             
             VStack {
                 
-                Text("\(1)")
+                Text("Score: \(self.champVM.score)")
                 
-                PlayCardView(champVM: champVM)
+                PlayCardView(champVM: self.champVM, frontImage: self.champVM.currentChampSkin, backImage: self.champVM.nextChampSkin)
                 
 //
                 

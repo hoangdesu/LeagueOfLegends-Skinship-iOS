@@ -19,13 +19,24 @@ class ChampionViewModel: ObservableObject {
     
     // animation states
     @Published var isAnimating = false
+    @Published var rotationDirection = 1.0 // 1.0: left to right, -1.0: right to left
     
     init() {
         self.resetGameState()
     }
     
-    func gamePlayController() {
+    func gamePlayController(choice: Champion) {
         self.isAnimating.toggle()
+        
+        print("CHOICE ID: \(choice.id), CURRENT ID: \(currentChamp.id)")
+        
+        if currentChamp.id == choice.id {
+            print("CORRECT")
+            self.rotationDirection = 1.0
+        } else {
+            print("WRONG")
+            self.rotationDirection = -1.0
+        }
         
         self.currentChamp = self.nextChamp
         self.nextChamp = champions.randomElement()!
@@ -35,7 +46,10 @@ class ChampionViewModel: ObservableObject {
         
         self.generate4RandomChoices()
         
-        print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)")
+        
+        
+        
+        print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)\n")
         
         
     }
@@ -73,9 +87,11 @@ class ChampionViewModel: ObservableObject {
     func resetGameState() {
         self.generateCurrentChamp()
         self.generateCurrentChampSkin()
-        self.generate4RandomChoices()
-        self.generateNextChampSkin()
+        
         self.generateNextChamp()
+        self.generateNextChampSkin()
+        
+        self.generate4RandomChoices()
         self.score = 0
     }
     
