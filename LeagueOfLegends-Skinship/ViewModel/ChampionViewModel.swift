@@ -10,27 +10,58 @@ import Foundation
 class ChampionViewModel: ObservableObject {
     @Published var currentChamp: Champion = champions[0]
     @Published var nextChamp = champions[1]
-    @Published var score: Int = 0
-    @Published var choices: [Champion] = []
     
+    @Published var currentChampSkin = ""
+    @Published var nextChampSkin = ""
+    
+    @Published var choices: [Champion] = []
+    @Published var score: Int = 0
+    
+    // animation states
+    @Published var isAnimating = false
     
     init() {
         self.resetGameState()
+    }
+    
+    func gamePlayController() {
+        self.isAnimating.toggle()
+        
+        self.currentChamp = self.nextChamp
+        self.nextChamp = champions.randomElement()!
+        
+        self.generateCurrentChampSkin()
+        self.generateNextChampSkin()
+        
+        self.generate4RandomChoices()
+        
+        print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)")
+        
+        
     }
     
     func generateCurrentChamp() {
         self.currentChamp = champions.randomElement()!
         
         print("\n[GET CURRENT CHAMP]: \(self.currentChamp.name)")
+        
     }
     
     
     func generate4RandomChoices() {
-        self.choices = [self.currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!].shuffled()
+        self.choices = [self.currentChamp]
+        for _ in 0..<3 {
+            self.choices.append(champions.randomElement()!)
+        }
         
         while self.hasDuplicatedChoices() {
-            self.choices = [self.currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!].shuffled()
+            self.choices = [self.currentChamp]
+            for _ in 0..<3 {
+                self.choices.append(champions.randomElement()!)
+            }
         }
+        
+        self.choices = self.choices.shuffled()
         
         print("4 choices: ", terminator: "")
         for choice in choices {
@@ -41,7 +72,9 @@ class ChampionViewModel: ObservableObject {
     
     func resetGameState() {
         self.generateCurrentChamp()
+        self.generateCurrentChampSkin()
         self.generate4RandomChoices()
+        self.generateNextChampSkin()
         self.generateNextChamp()
         self.score = 0
     }
@@ -75,9 +108,29 @@ class ChampionViewModel: ObservableObject {
                 seen[id] = id
             }
         }
-        
         return false
     }
+    
+    func swapNextChampWithCurrentChamp() {
+        self.currentChamp = self.nextChamp
+        generateNextChamp()
+        
+        while self.nextChamp.id == self.currentChamp.id {
+            generateNextChamp()
+        }
+    }
+    
+    func generateCurrentChampSkin() {
+        self.currentChampSkin = self.currentChamp.skins.randomElement()!.loading
+        print("Current champ skin: \(self.currentChampSkin)")
+    }
+    
+    func generateNextChampSkin() {
+        self.nextChampSkin = self.nextChamp.skins.randomElement()!.loading
+        print("Next champ skin: \(self.nextChampSkin)")
+    }
+    
+    
     
     
 }
