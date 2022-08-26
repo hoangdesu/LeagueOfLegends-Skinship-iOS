@@ -26,6 +26,7 @@ struct PlayCardView: View {
             ZStack {
                 Image(self.frontImage)
                     .scaleEffect(0.7)
+                    .shadow(color: .green, radius: 10, x: 2, y: 2)
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                 
             }
@@ -54,13 +55,14 @@ struct PlayCardView: View {
                         
                         if self.rotation == 90 * self.champVM.rotationDirection || self.rotation == 270 * self.champVM.rotationDirection {
                             
-                            // magic happens here: swap the front with the back image at flip point and get new backimage
+                            // dark magic happens here: swap the front with the back image at flip point and get new back image
                             self.frontImage = self.backImage
                             self.backImage = self.champVM.nextChampSkin
                             
+                            
                         } else if self.rotation == 360 * self.champVM.rotationDirection || self.rotation == 180 * self.champVM.rotationDirection {
                             self.champVM.isAnimating = false
-                            //                        self.rotationDirection = -self.rotationDirection // nice bug/feature: card will spin for 1 full rotatation then change image
+//                            self.champVM.rotationDirection = -self.champVM.rotationDirection // nice bug/feature: card will spin for 1 full rotatation then change image
                         }
                         
                         if self.rotation == 360 * self.champVM.rotationDirection {
