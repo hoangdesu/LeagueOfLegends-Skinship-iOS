@@ -22,11 +22,11 @@ func playBackgroundMusic() {
     }
 }
 
-func playSoundEffect(sound: String, type: String, volume: Double) {
+func playSoundEffect(sound: String, type: String) {
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            audioPlayer?.setVolume(Float(volume), fadeDuration: 0)
+            audioPlayer?.setVolume(0.7, fadeDuration: 0)
             audioPlayer?.play()
         } catch {
             print("ERROR: Could not find and play the sound file!")
