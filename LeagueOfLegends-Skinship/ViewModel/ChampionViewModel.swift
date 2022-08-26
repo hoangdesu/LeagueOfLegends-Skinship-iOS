@@ -19,9 +19,9 @@ class ChampionViewModel: ObservableObject {
     
     @Published var choices: [Champion] = []
     @Published var score: Int = 0
-//    @Published var highscore: Int = UserDefaults.standard.integer(forKey: "highScore")
-    
     @AppStorage("highScore") var highscore: Int = 0
+    
+    @Published var backgroundMusicVolume: Double = 0.5
     
     // animation states
     @Published var isAnimating = false
@@ -90,6 +90,8 @@ class ChampionViewModel: ObservableObject {
         
         self.generate4RandomChoices()
         self.score = 0
+        
+//        playSound(sound: "summonersRift", type: "mp3", volume: self.backgroundMusicVolume)
     }
     
     func getRandomSkinFromCurrentChamp() -> String {

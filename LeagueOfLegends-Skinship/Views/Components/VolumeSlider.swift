@@ -19,7 +19,7 @@ import UIKit
 //   func updateUIView(_ view: MPVolumeView, context: Context) {}
 //}
 
-struct VolumeSlider: View {
+struct VolumeSliderWithIdicators: View {
     
     @State private var volume: Double = 0
     @State private var hasChanged: Bool = false
@@ -29,21 +29,42 @@ struct VolumeSlider: View {
     
     var body: some View {
         
-       
+        
         Text("Current volume \(self.volume)")
         
         Slider(value: $volume, in: range, step: step) {
-                    
-                } minimumValueLabel: {
-                    Text("\(range.lowerBound)")
-                } maximumValueLabel: {
-                    Text("\(range.upperBound)")
-                } onEditingChanged: { hasChanged in
-                    self.hasChanged = hasChanged
-                }
-//
-//        }
+            
+        } minimumValueLabel: {
+            Text("\(range.lowerBound)")
+        } maximumValueLabel: {
+            Text("\(range.upperBound)")
+        } onEditingChanged: { hasChanged in
+            self.hasChanged = hasChanged
+        }
+        //
+        //        }
         
-//        Slider(value: $volume, in: range, step: step, label: <#T##() -> _#>, minimumValueLabel: <#T##() -> _#>, maximumValueLabel: <#T##() -> _#>, onEditingChanged: <#T##(Bool) -> Void#>)
+        //        Slider(value: $volume, in: range, step: step, label: <#T##() -> _#>, minimumValueLabel: <#T##() -> _#>, maximumValueLabel: <#T##() -> _#>, onEditingChanged: <#T##(Bool) -> Void#>)
+    }
+}
+
+struct VolumeSlider: View {
+    
+    @ObservedObject var champVM: ChampionViewModel
+    
+    @State private var volume: Double = 0
+    @State private var hasChanged: Bool = false
+    
+    private let range: ClosedRange<Double> = 0...1.0
+    private let step: Double = 0.01
+    
+    var body: some View {
+        
+        Slider(value: $champVM.backgroundMusicVolume, in: range, step: step) {
+            
+        } onEditingChanged: { hasChanged in
+            self.hasChanged = hasChanged
+        }
+
     }
 }

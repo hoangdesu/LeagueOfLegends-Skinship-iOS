@@ -37,7 +37,7 @@ struct GameView: View {
                 
                 
                 VStack{
-                    // MARK: - Heading
+                    // MARK: - Header
                     HStack {
                         Button(action: {
                             //                            self.resetGame()
@@ -79,23 +79,24 @@ struct GameView: View {
                                 .onAppear {
 //                                    self.champVM.highscore = UserDefaults.standard.integer(forKey: "highScore")
                                 }
-                                .onTapGesture {
-//                                    self.champVM.highscore = 0
-                                    self.showResetHighscoreAlert = true
-                                }
-                                .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
-                                    Button("Reset", role: .destructive) {
-                                        self.champVM.highscore = 0
-                                    }
-                                }, message: {
-                                    Text("Do you want to reset high score?")
-                                })
+                                
                                     
                             Text("High\nScore".uppercased())
                                 .scoreLabelStyle()
                                 .multilineTextAlignment(.leading)
                         }
                         .modifier(ScoreContainerModifier())
+                        .onTapGesture {
+//                                    self.champVM.highscore = 0
+                            self.showResetHighscoreAlert = true
+                        }
+                        .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
+                            Button("Reset", role: .destructive) {
+                                self.champVM.highscore = 0
+                            }
+                        }, message: {
+                            Text("Do you want to reset high score?")
+                        })
                     }
                 }
                 //                .offset(y: -20)
@@ -181,7 +182,7 @@ struct GameView: View {
         } // ZStack
         .ignoresSafeArea(.all)
         .sheet(isPresented: $showInfoSheet) {
-            InfoSheetView()
+            InfoSheetView(champVM: self.champVM)
         }
     }
 }
