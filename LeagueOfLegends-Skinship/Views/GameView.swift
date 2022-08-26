@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-
 struct GameView: View {
     
     // MARK: - PROPERTIES
     
-    let haptics = UINotificationFeedbackGenerator()
-    
     @StateObject var champVM = ChampionViewModel()
+    @State var showResetHighscoreAlert = false
+    
     
     
     // MARK: - FUNCTIONS
@@ -65,7 +64,7 @@ struct GameView: View {
                                 .scoreLabelStyle()
                                 .multilineTextAlignment(.trailing)
                             
-                            Text("\(1)")
+                            Text("\(self.champVM.score)")
                                 .scoreNumberStyle()
                                 .modifier(ScoreNumberModifier())
                         }
@@ -76,10 +75,24 @@ struct GameView: View {
                         
                         // High score
                         HStack {
-                            Text("200")
+                            Text("\(self.champVM.highscore)")
                                 .scoreNumberStyle()
                                 .modifier(ScoreNumberModifier())
-                            
+                                .onAppear {
+//                                    self.champVM.highscore = UserDefaults.standard.integer(forKey: "highScore")
+                                }
+                                .onTapGesture {
+//                                    self.champVM.highscore = 0
+                                    self.showResetHighscoreAlert = true
+                                }
+                                .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
+                                    Button("Reset", role: .destructive) {
+                                        self.champVM.highscore = 0
+                                    }
+                                }, message: {
+                                    Text("Do you want to reset high score?")
+                                })
+                                    
                             Text("High\nScore".uppercased())
                                 .scoreLabelStyle()
                                 .multilineTextAlignment(.leading)
@@ -91,27 +104,26 @@ struct GameView: View {
                 //                .padding(.bottom, -20)
                 
                 
-                
-                
-                
                 // MARK: - Play Card View
                 PlayCardView(champVM: self.champVM, frontImage: self.champVM.currentChampSkin, backImage: self.champVM.nextChampSkin)
                 
                 
                 // MARK: - Selections
-                VStack(spacing: 30) {
+                VStack(spacing: 20) {
                     Text("What champion is this?")
                         .textLabelStyleWithFontSize(15)
+                        .foregroundColor(.red)
                     
                     HStack {
                         Button {
                             self.champVM.gamePlayController(choice: champVM.choices[0])
+                            
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[0].defaultSkin)
                         }
                         
                         Spacer()
-                            .frame(width: 40)
+                            .frame(width: 50)
                         
                         Button {
                             self.champVM.gamePlayController(choice: champVM.choices[1])
@@ -128,7 +140,7 @@ struct GameView: View {
                         }
                         
                         Spacer()
-                            .frame(width: 40)
+                            .frame(width: 50)
                         
                         Button {
                             self.champVM.gamePlayController(choice: champVM.choices[3])
@@ -138,6 +150,7 @@ struct GameView: View {
                         }
                     }
                 } // VStack
+                .padding(.top, 10)
             } // VStack
             //            // MARK: - Buttons
             //            .overlay(

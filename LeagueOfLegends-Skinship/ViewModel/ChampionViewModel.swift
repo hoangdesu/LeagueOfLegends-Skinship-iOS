@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ChampionViewModel: ObservableObject {
+    let haptics = UINotificationFeedbackGenerator()
+    
     @Published var currentChamp: Champion = champions[0]
     @Published var nextChamp = champions[1]
     
@@ -16,6 +19,9 @@ class ChampionViewModel: ObservableObject {
     
     @Published var choices: [Champion] = []
     @Published var score: Int = 0
+//    @Published var highscore: Int = UserDefaults.standard.integer(forKey: "highScore")
+    
+    @AppStorage("highScore") var highscore: Int = 0
     
     // animation states
     @Published var isAnimating = false
@@ -27,16 +33,8 @@ class ChampionViewModel: ObservableObject {
     
     func gamePlayController(choice: Champion) {
         
+        self.checkAnswer(choice)
         
-        if currentChamp.id == choice.id {
-            print("CORRECT")
-            self.rotationDirection = 1.0
-        } else {
-            print("WRONG")
-            self.rotationDirection = -1.0
-        }
-        
-        self.isAnimating.toggle()
         
         self.currentChamp = self.nextChamp
         self.nextChamp = champions.randomElement()!
@@ -145,6 +143,32 @@ class ChampionViewModel: ObservableObject {
         print("Next champ skin: \(self.nextChampSkin)")
     }
     
+    func checkAnswer(_ choice: Champion) {
+        if currentChamp.id == choice.id {
+            print("CORRECT ANSWER")
+            
+            self.score += 1
+            
+            // update new highscore
+            if self.score > self.highscore {
+                self.highscore = self.score
+//                UserDefaults.standard.set(highscore, forKey: "highScore")
+//                highscore =
+            }
+            
+            self.rotationDirection = 1.0
+            haptics.notificationOccurred(.success)
+           
+        } else {
+            print("WRONG ANSWER")
+            
+            self.score -= 1
+            self.rotationDirection = -1.0
+            haptics.notificationOccurred(.error)
+        }
+        
+        self.isAnimating.toggle()
+    }
     
     
     

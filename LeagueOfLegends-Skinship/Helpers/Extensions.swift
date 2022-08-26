@@ -25,6 +25,6 @@ extension Text {
     func textLabelStyleWithFontSize(_ size: Double) -> Text {
         self
             .foregroundColor(Color.white)
-            .font(.system(size: size, weight: .medium, design: .rounded))
+            .font(.system(size: size, weight: .bold, design: .rounded))
     }
 }
