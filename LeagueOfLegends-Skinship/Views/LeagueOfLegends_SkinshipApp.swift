@@ -13,6 +13,7 @@ struct LeagueOfLegends_SkinshipApp: App {
     var body: some Scene {
         WindowGroup {
             GameView()
+//            InfoSheetView()
         }
     }
 }

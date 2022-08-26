@@ -12,15 +12,13 @@ struct GameView: View {
     // MARK: - PROPERTIES
     
     @StateObject var champVM = ChampionViewModel()
-    @State var showResetHighscoreAlert = false
     
+    @State var showResetHighscoreAlert = false
+    @State var showInfoSheet = true
     
     
     // MARK: - FUNCTIONS
-    
-    
-    
-    
+   
     
     // MARK: - VIEW
     var body: some View {
@@ -49,7 +47,7 @@ struct GameView: View {
                         .modifier(ButtonModifier())
                         
                         Button(action: {
-                            //                            self.resetGame()
+                            self.showInfoSheet = true
                         }) {
                             Image(systemName: "info.circle")
                         }
@@ -182,6 +180,9 @@ struct GameView: View {
             ////                )
         } // ZStack
         .ignoresSafeArea(.all)
+        .sheet(isPresented: $showInfoSheet) {
+            InfoSheetView()
+        }
     }
 }
 
