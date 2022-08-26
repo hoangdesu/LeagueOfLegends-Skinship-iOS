@@ -1,16 +1,16 @@
 ## Main requirements
 
-- [] Core game logics
+- [x] Core game logics
 - [] At least 5 views
 	- [] Splash screen
 	- [] Menu View
 	- [] Leaderboard view
-	- [] Game View
+	- [x] Game View
 	- [] How to play view
 - [] Background music. Can toggle on/off
 - [] Sound effects
 - [] Haptic feedback
-- [] Card flip animation
+- [x] Card flip animation
 - [] Pop-up modal view
 - [] Pop-up sheet navigation
 - [] AppIcon
@@ -27,7 +27,7 @@
 - [] Also works on iPads and MacOS
 - [] Lightmode vs Darkmode
 
-## Nice to have
+## Idea
 - [] Time-based event publish -> will have an time out. User score to earn more time
 - [] 
 - [] 

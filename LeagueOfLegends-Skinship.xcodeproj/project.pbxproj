@@ -25,7 +25,8 @@
 		29E7828528B7F869003CB537 /* buildDataScript.py in Resources */ = {isa = PBXBuildFile; fileRef = 29E7828428B7F869003CB537 /* buildDataScript.py */; };
 		29E7828728B7FAE1003CB537 /* champions.json in Resources */ = {isa = PBXBuildFile; fileRef = 29E7828628B7FAE1003CB537 /* champions.json */; };
 		29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */; };
-		29E7829028B8F22B003CB537 /* CodeSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7828F28B8F22B003CB537 /* CodeSnippets.swift */; };
+		29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */ = {isa = PBXBuildFile; fileRef = 29E7829228B9372E003CB537 /* TODO-Checklist.md */; };
+		29E7829728B93E69003CB537 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829628B93E67003CB537 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		29E7822028B6E096003CB537 /* LeagueOfLegends-Skinship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LeagueOfLegends-Skinship.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29E7822028B6E096003CB537 /* LoL Skinship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoL Skinship.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueOfLegends_SkinshipApp.swift; sourceTree = "<group>"; };
 		29E7822528B6E096003CB537 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29E7822728B6E099003CB537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +68,8 @@
 		29E7828428B7F869003CB537 /* buildDataScript.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = buildDataScript.py; path = assets/script/buildDataScript.py; sourceTree = SOURCE_ROOT; };
 		29E7828628B7FAE1003CB537 /* champions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = champions.json; path = assets/script/output/champions.json; sourceTree = SOURCE_ROOT; };
 		29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionViewModel.swift; sourceTree = "<group>"; };
-		29E7828F28B8F22B003CB537 /* CodeSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnippets.swift; sourceTree = "<group>"; };
+		29E7829228B9372E003CB537 /* TODO-Checklist.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "TODO-Checklist.md"; sourceTree = SOURCE_ROOT; };
+		29E7829628B93E67003CB537 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,7 @@
 		29E7822128B6E096003CB537 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29E7822028B6E096003CB537 /* LeagueOfLegends-Skinship.app */,
+				29E7822028B6E096003CB537 /* LoL Skinship.app */,
 				29E7823028B6E099003CB537 /* LeagueOfLegends-SkinshipTests.xctest */,
 				29E7823A28B6E099003CB537 /* LeagueOfLegends-SkinshipUITests.xctest */,
 			);
@@ -118,6 +120,7 @@
 		29E7822228B6E096003CB537 /* LeagueOfLegends-Skinship */ = {
 			isa = PBXGroup;
 			children = (
+				29E7829128B93713003CB537 /* Docs */,
 				29E7828C28B8EFC4003CB537 /* ViewModel */,
 				29E7828328B7F845003CB537 /* Scripts */,
 				29E7825128B6E4F8003CB537 /* Helpers */,
@@ -198,6 +201,7 @@
 			children = (
 				29E7825228B6E519003CB537 /* Modifiers.swift */,
 				29E7827628B78700003CB537 /* AudioPlayer.swift */,
+				29E7829628B93E67003CB537 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -214,9 +218,16 @@
 			isa = PBXGroup;
 			children = (
 				29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */,
-				29E7828F28B8F22B003CB537 /* CodeSnippets.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29E7829128B93713003CB537 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				29E7829228B9372E003CB537 /* TODO-Checklist.md */,
+			);
+			path = Docs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +247,7 @@
 			);
 			name = "LeagueOfLegends-Skinship";
 			productName = "LeagueOfLegends-Skinship";
-			productReference = 29E7822028B6E096003CB537 /* LeagueOfLegends-Skinship.app */;
+			productReference = 29E7822028B6E096003CB537 /* LoL Skinship.app */;
 			productType = "com.apple.product-type.application";
 		};
 		29E7822F28B6E099003CB537 /* LeagueOfLegends-SkinshipTests */ = {
@@ -324,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29E7828728B7FAE1003CB537 /* champions.json in Resources */,
+				29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */,
 				29E7827528B786BC003CB537 /* mia.wav in Resources */,
 				29E7828528B7F869003CB537 /* buildDataScript.py in Resources */,
 				29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */,
@@ -361,8 +373,8 @@
 				29E7825328B6E519003CB537 /* Modifiers.swift in Sources */,
 				29E7827928B78D35003CB537 /* GameView.swift in Sources */,
 				29E7827B28B78E05003CB537 /* PlayCardView.swift in Sources */,
+				29E7829728B93E69003CB537 /* Extensions.swift in Sources */,
 				29E7825728B6E7C8003CB537 /* AnswerImageWrapper.swift in Sources */,
-				29E7829028B8F22B003CB537 /* CodeSnippets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +465,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "LoL Skinship";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -506,6 +519,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "LoL Skinship";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -527,6 +541,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +550,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hoangdesu.LeagueOfLegends-Skinship";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "LoL Skinship";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,6 +571,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,7 +580,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hoangdesu.LeagueOfLegends-Skinship";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "LoL Skinship";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

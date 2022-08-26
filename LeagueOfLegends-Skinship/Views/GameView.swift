@@ -19,16 +19,7 @@ struct GameView: View {
     
     // MARK: - FUNCTIONS
     
-    func buttonTapHandler(choice: Champion) {
-        
-//        self.champVM.generateCurrentChamp()
-//        self.champVM.generate4RandomChoices()
-//        self.champVM.generateNextChamp()
-        
-        self.champVM.gamePlayController(choice: choice)
-        
-        
-    }
+    
     
     
     
@@ -36,41 +27,94 @@ struct GameView: View {
     var body: some View {
         
         ZStack {
-            Image("SR")
+            Image("background")
                 .ignoresSafeArea(.all)
                 .opacity(0.9)
                 .blur(radius: 4)
             
             
             VStack {
+                //                Color(.red)
+                //                Text("Score: \(self.champVM.score)")
                 
-                Text("Score: \(self.champVM.score)")
                 
+                
+                VStack{
+                    // MARK: - Heading
+                    HStack {
+                        Button(action: {
+                            //                            self.resetGame()
+                        }) {
+                            Image(systemName: "arrow.2.circlepath.circle")
+                        }
+                        .modifier(ButtonModifier())
+                        
+                        Button(action: {
+                            //                            self.resetGame()
+                        }) {
+                            Image(systemName: "info.circle")
+                        }
+                        .modifier(ButtonModifier())
+                    }
+                    
+                    // MARK: - Scores
+                    HStack {
+                        // Your score
+                        HStack {
+                            Text("Your\nscore")
+                                .scoreLabelStyle()
+                                .multilineTextAlignment(.trailing)
+                            
+                            Text("\(1)")
+                                .scoreNumberStyle()
+                                .modifier(ScoreNumberModifier())
+                        }
+                        .modifier(ScoreContainerModifier())
+                        
+                        Spacer()
+                            .frame(width: 80)
+                        
+                        // High score
+                        HStack {
+                            Text("200")
+                                .scoreNumberStyle()
+                                .modifier(ScoreNumberModifier())
+                            
+                            Text("High\nScore".uppercased())
+                                .scoreLabelStyle()
+                                .multilineTextAlignment(.leading)
+                        }
+                        .modifier(ScoreContainerModifier())
+                    }
+                }
+                //                .offset(y: -20)
+                //                .padding(.bottom, -20)
+                
+                
+                
+                
+                
+                // MARK: - Play Card View
                 PlayCardView(champVM: self.champVM, frontImage: self.champVM.currentChampSkin, backImage: self.champVM.nextChampSkin)
                 
-//
                 
-//                Image(champVM.getRandomSkinFromCurrentChamp())
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(height: 400)
-//                //                    .cornerRadius(6)
-//                    .padding()
-                
-                
+                // MARK: - Selections
                 VStack(spacing: 30) {
+                    Text("What champion is this?")
+                        .textLabelStyleWithFontSize(15)
+                    
                     HStack {
                         Button {
-                            buttonTapHandler(choice: champVM.choices[0])
+                            self.champVM.gamePlayController(choice: champVM.choices[0])
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[0].defaultSkin)
                         }
                         
                         Spacer()
-                            .frame(width: 50)
+                            .frame(width: 40)
                         
                         Button {
-                            buttonTapHandler(choice: champVM.choices[1])
+                            self.champVM.gamePlayController(choice: champVM.choices[1])
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[1].defaultSkin)
                         }
@@ -78,39 +122,53 @@ struct GameView: View {
                     
                     HStack {
                         Button {
-                            buttonTapHandler(choice: champVM.choices[2])
+                            self.champVM.gamePlayController(choice: champVM.choices[2])
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[2].defaultSkin)
                         }
-
+                        
                         Spacer()
-                            .frame(width: 50)
-
+                            .frame(width: 40)
+                        
                         Button {
-                            buttonTapHandler(choice: champVM.choices[3])
-
+                            self.champVM.gamePlayController(choice: champVM.choices[3])
+                            
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[3].defaultSkin)
                         }
                     }
-                }
-                
-            }
-        }
-        
-        
-        
-        
-        
-    }
-    
-    
-}
-
-
-extension Array {
-    func contains<T>(obj: T) -> Bool where T: Equatable {
-        return !self.filter({$0 as? T == obj}).isEmpty
+                } // VStack
+            } // VStack
+            //            // MARK: - Buttons
+            //            .overlay(
+            //                // Reset
+            //                Button(action: {
+            ////                        self.resetGame()
+            //                }) {
+            //                    Image(systemName: "arrow.2.circlepath.circle")
+            //                }
+            //                .modifier(ButtonModifier()), alignment: .topLeading
+            //        )
+            //            .overlay(
+            //                // Info
+            //                Button(action: {
+            ////                        self.showingInfoView = true
+            //                }) {
+            //                    Image(systemName: "info.circle")
+            //                }
+            //                .modifier(ButtonModifier()), alignment: .topTrailing
+            //        )
+            //            .padding()
+            //            .frame(maxWidth: 720)
+            ////
+            ////                // MARK: - Blur efect
+            ////                .blur(radius: $showingModal.wrappedValue ? 5 : 0, opaque: false)
+            //
+            ////                .overlay(
+            ////                    Text("Overlay")
+            ////                )
+        } // ZStack
+        .ignoresSafeArea(.all)
     }
 }
 

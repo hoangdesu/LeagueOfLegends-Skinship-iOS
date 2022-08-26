@@ -26,9 +26,7 @@ class ChampionViewModel: ObservableObject {
     }
     
     func gamePlayController(choice: Champion) {
-        self.isAnimating.toggle()
         
-        print("CHOICE ID: \(choice.id), CURRENT ID: \(currentChamp.id)")
         
         if currentChamp.id == choice.id {
             print("CORRECT")
@@ -37,6 +35,8 @@ class ChampionViewModel: ObservableObject {
             print("WRONG")
             self.rotationDirection = -1.0
         }
+        
+        self.isAnimating.toggle()
         
         self.currentChamp = self.nextChamp
         self.nextChamp = champions.randomElement()!
@@ -47,8 +47,7 @@ class ChampionViewModel: ObservableObject {
         self.generate4RandomChoices()
         
         
-        
-        
+        print("CHOICE ID: \(choice.id), CURRENT ID: \(currentChamp.id)")
         print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)\n")
         
         

@@ -17,7 +17,6 @@ struct AnswerImageWrapper: View {
             .scaledToFit()
             .frame(width: 100)
             .cornerRadius(12)
-        
     }
 }
 
