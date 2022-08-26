@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-var champions = decodeJsonFromFile(jsonFileName: "champions.json")
 
 struct GameView: View {
     
@@ -15,66 +14,68 @@ struct GameView: View {
     
     let haptics = UINotificationFeedbackGenerator()
     
+    @StateObject var champVM = ChampionViewModel()
     
+//    @State private var currentChamp: Champion
     
-    @State var currentChamp: Champion
-    
-    var choices: [Champion] {
-        //        var randomChoices = [currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!]
-        
-        //        reels = reels.map({ _ in
-        //            Int.random(in: 0...icons.count - 1)
-        //        })
+//    var choicesARCHIVED: [Champion] {
+//        //        var randomChoices = [currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!]
 //
-        var randomChoices: [Champion] = []
-        
-        for _ in 0..<4 {
-            var randChamp = champions.randomElement()!
-//            for champ in randomChoices {
-//                if champ.id == randChamp.id {
-//                    randChamp = champions.randomElement()!
-//                    print("duplicated")
-//                }
-//            }
-            randomChoices.append(randChamp)
-        }
-        
-        let randInd = Int.random(in: 0..<4)
-        print("RANDOM INDEX: \(randInd)")
-        
-        randomChoices[randInd] = currentChamp
+//        //        reels = reels.map({ _ in
+//        //            Int.random(in: 0...icons.count - 1)
+//        //        })
+////
+//        var randomChoices: [Champion] = []
 //
-//
-        
-//        var randomChoices = [currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!].shuffled()
-//
-//
-            
-//        for c in randomChoices {
-//            print("RANDOM CHOICES: \(c.name)")
+//        for _ in 0..<4 {
+//            var randChamp = champions.randomElement()!
+////            for champ in randomChoices {
+////                if champ.id == randChamp.id {
+////                    randChamp = champions.randomElement()!
+////                    print("duplicated")
+////                }
+////            }
+//            randomChoices.append(randChamp)
 //        }
-                    
-        
-        return randomChoices
-    }
+//
+//        let randInd = Int.random(in: 0..<4)
+//        print("RANDOM INDEX: \(randInd)")
+//
+//        randomChoices[randInd] = currentChamp
+////
+////
+//
+////        var randomChoices = [currentChamp, champions.randomElement()!, champions.randomElement()!, champions.randomElement()!].shuffled()
+////
+////
+//
+////        for c in randomChoices {
+////            print("RANDOM CHOICES: \(c.name)")
+////        }
+//
+//
+//        return randomChoices
+//    }
     
+    @State private var score = 0
    
     
     
     // MARK: - GAME INIT STATE
-    init(firstChamp: Champion) {
+//    init(firstChamp: Champion) {
 //
-        _currentChamp = State(initialValue: firstChamp)
-        print("CURRENT CHAMP INIT: \(currentChamp.name)")
-        
-    }
+//        _currentChamp = State(initialValue: firstChamp)
+//        print("CURRENT CHAMP INIT: \(currentChamp.name)")
+//
+//    }
     
     
     
     // MARK: - FUNCTIONS
     
     func buttonTapHandler(choice: Champion) {
-        print("CHOICE: \(choice.name)")
+//        print()
+//        print("CHOICE: \(choice.name)")
         //        let removedChamp = self.champions.remove(at: Int.random(in: 0..<champions.count))
         //        print(removedChamp)
 //        print(champions.count)
@@ -82,47 +83,38 @@ struct GameView: View {
         
         //        champions.remove
         
-        currentChamp = getCurrentChamp()
-        print("CURRENT CHAMP: \(currentChamp.name)")
+        self.champVM.resetGameState()
+        
+//        checkChoice(choice: choice)
+        
+        
+//        self.getNewCurrentChamp()
+//        print("CURRENT CHAMP: \(self.currentChamp.name)")
         
     }
     
-    func getRandomSkinFromCurrentChamp(champ: Champion) -> String {
-        return champ.skins.randomElement()!.loading
-    }
-    
-    func getCurrentChamp() -> Champion {
-        let randomIndex = Int.random(in: 0..<champions.count)
-        let randomChamp = champions[randomIndex]
-        print("RANDOM CHAMP: \(randomChamp.name)")
-        return randomChamp
-    }
-    
-    
-    
-    
-    //
-    //    func test() {
-    //        let fm = FileManager.default
-    //        var path = Bundle.main.resourcePath!
-    //
-    //        print(path)
-    //
-    //        do {
-    //            let items = try fm.contentsOfDirectory(atPath: path)
-    //
-    //            for item in items {
-    //                print("Found \(item)")
-    //
-    //            }
-    //        } catch {
-    //            // failed to read directory – bad permissions, perhaps?
-    //        }
-    //    }
-    
-    
-    //    func
-    
+//    func getRandomSkinFromCurrentChamp(champ: Champion) -> String {
+//        return champ.skins.randomElement()!.loading
+//    }
+//
+//    func getNewCurrentChamp() {
+//        let randomIndex = Int.random(in: 0..<champions.count)
+//        let randomChamp = champions[randomIndex]
+//        print("RANDOM CHAMP: \(randomChamp.name)")
+//        self.currentChamp = randomChamp
+//    }
+//
+//    func checkChoice(choice: Champion) {
+//        if choice.id == self.currentChamp.id {
+//            self.score += 1
+//            haptics.notificationOccurred(.success)
+//        } else {
+//            self.score -= 1
+//            haptics.notificationOccurred(.error)
+//            playSoundEffect("mia")
+//        }
+//        print("SCORE: \(self.score)")
+//    }
     
     
     
@@ -140,7 +132,9 @@ struct GameView: View {
                 
                 //                PlayCardView()
                 
-                Image(currentChamp.skins.randomElement()!.loading)
+                Text("\(1)")
+                
+                Image(champVM.getRandomSkinFromCurrentChamp())
                     .resizable()
                     .scaledToFit()
                     .frame(height: 400)
@@ -151,38 +145,36 @@ struct GameView: View {
                 VStack(spacing: 30) {
                     HStack {
                         Button {
-                            
-                            
-                            buttonTapHandler(choice: choices[0])
+                            buttonTapHandler(choice: champVM.choices[0])
                         } label: {
-                            AnswerImageWrapper(image: choices[0].defaultSkin)
+                            AnswerImageWrapper(image: champVM.choices[0].defaultSkin)
                         }
                         
                         Spacer()
                             .frame(width: 50)
                         
                         Button {
-                            buttonTapHandler(choice: choices[1])
+                            buttonTapHandler(choice: champVM.choices[1])
                         } label: {
-                            AnswerImageWrapper(image: choices[1].defaultSkin)
+                            AnswerImageWrapper(image: champVM.choices[1].defaultSkin)
                         }
                     }
                     
                     HStack {
                         Button {
-                            buttonTapHandler(choice: choices[2])
+                            buttonTapHandler(choice: champVM.choices[2])
                         } label: {
-                            AnswerImageWrapper(image: choices[2].defaultSkin)
+                            AnswerImageWrapper(image: champVM.choices[2].defaultSkin)
                         }
-                        
+
                         Spacer()
                             .frame(width: 50)
-                        
+
                         Button {
-                            buttonTapHandler(choice: choices[3])
-                            
+                            buttonTapHandler(choice: champVM.choices[3])
+
                         } label: {
-                            AnswerImageWrapper(image: choices[3].defaultSkin)
+                            AnswerImageWrapper(image: champVM.choices[3].defaultSkin)
                         }
                     }
                 }

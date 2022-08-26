@@ -24,6 +24,8 @@
 		29E7828028B7AA67003CB537 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7827F28B7AA67003CB537 /* ModelData.swift */; };
 		29E7828528B7F869003CB537 /* buildDataScript.py in Resources */ = {isa = PBXBuildFile; fileRef = 29E7828428B7F869003CB537 /* buildDataScript.py */; };
 		29E7828728B7FAE1003CB537 /* champions.json in Resources */ = {isa = PBXBuildFile; fileRef = 29E7828628B7FAE1003CB537 /* champions.json */; };
+		29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */; };
+		29E7829028B8F22B003CB537 /* CodeSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7828F28B8F22B003CB537 /* CodeSnippets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		29E7827F28B7AA67003CB537 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		29E7828428B7F869003CB537 /* buildDataScript.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = buildDataScript.py; path = assets/script/buildDataScript.py; sourceTree = SOURCE_ROOT; };
 		29E7828628B7FAE1003CB537 /* champions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = champions.json; path = assets/script/output/champions.json; sourceTree = SOURCE_ROOT; };
+		29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionViewModel.swift; sourceTree = "<group>"; };
+		29E7828F28B8F22B003CB537 /* CodeSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnippets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 		29E7822228B6E096003CB537 /* LeagueOfLegends-Skinship */ = {
 			isa = PBXGroup;
 			children = (
+				29E7828C28B8EFC4003CB537 /* ViewModel */,
 				29E7828328B7F845003CB537 /* Scripts */,
 				29E7825128B6E4F8003CB537 /* Helpers */,
 				29E7824D28B6E46E003CB537 /* Views */,
@@ -203,6 +208,15 @@
 				29E7828428B7F869003CB537 /* buildDataScript.py */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		29E7828C28B8EFC4003CB537 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */,
+				29E7828F28B8F22B003CB537 /* CodeSnippets.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29E7827D28B7A9C0003CB537 /* Champion.swift in Sources */,
+				29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */,
 				29E7822628B6E096003CB537 /* ContentView.swift in Sources */,
 				29E7828028B7AA67003CB537 /* ModelData.swift in Sources */,
 				29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */,
@@ -347,6 +362,7 @@
 				29E7827928B78D35003CB537 /* GameView.swift in Sources */,
 				29E7827B28B78E05003CB537 /* PlayCardView.swift in Sources */,
 				29E7825728B6E7C8003CB537 /* AnswerImageWrapper.swift in Sources */,
+				29E7829028B8F22B003CB537 /* CodeSnippets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

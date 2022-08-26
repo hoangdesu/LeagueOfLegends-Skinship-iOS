@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct LeagueOfLegends_SkinshipApp: App {
-    private var champions = decodeJsonFromFile(jsonFileName: "champions.json")
 
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            GameView(firstChamp: champions.randomElement()!)
+            GameView()
         }
     }
 }

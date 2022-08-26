@@ -13,7 +13,6 @@ func decodeJsonFromFile(jsonFileName: String) -> [Champion] {
             do {
                 let decoder = JSONDecoder()
                 let decoded = try decoder.decode([Champion].self, from: data)
-//                print(decoded)
                 return decoded
             } catch let error {
                 fatalError("Failed to decode JSON: \(error)")
@@ -25,7 +24,4 @@ func decodeJsonFromFile(jsonFileName: String) -> [Champion] {
     return [ ] as [Champion]
 }
 
-
-//print(champions)
-
-
+var champions = decodeJsonFromFile(jsonFileName: "champions.json")
