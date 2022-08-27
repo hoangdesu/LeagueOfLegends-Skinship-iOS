@@ -14,7 +14,7 @@ struct GameView: View {
     @StateObject var champVM = ChampionViewModel()
     
     @State var showResetHighscoreAlert = false
-    @State var showInfoSheet = true
+    @State var showInfoSheet = false
     
     
     // MARK: - FUNCTIONS

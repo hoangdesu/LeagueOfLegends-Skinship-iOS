@@ -30,7 +30,12 @@
 		29E7829B28B96405003CB537 /* InfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829A28B96405003CB537 /* InfoSheetView.swift */; };
 		29E7829D28B964D5003CB537 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829C28B964D5003CB537 /* VolumeSlider.swift */; };
 		29E7829F28B977A7003CB537 /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829E28B977A7003CB537 /* CoverView.swift */; };
-		29E782A128B97CBB003CB537 /* summonersRift.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29E782A028B97CBB003CB537 /* summonersRift.mp3 */; };
+		29E782A128B97CBB003CB537 /* SR - Early Game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29E782A028B97CBB003CB537 /* SR - Early Game.mp3 */; };
+		29E782A428B98D50003CB537 /* SR - Late Game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29E782A228B98D4F003CB537 /* SR - Late Game.mp3 */; };
+		29E782A528B98D50003CB537 /* SR - Mid Game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29E782A328B98D50003CB537 /* SR - Mid Game.mp3 */; };
+		29E782A728B98E43003CB537 /* Enemy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29E782A628B98E43003CB537 /* Enemy.mp3 */; };
+		29E782A928B98EDB003CB537 /* PopStars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29E782A828B98EDB003CB537 /* PopStars.mp3 */; };
+		29E782AB28B99400003CB537 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E782AA28B99400003CB537 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +82,12 @@
 		29E7829A28B96405003CB537 /* InfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetView.swift; sourceTree = "<group>"; };
 		29E7829C28B964D5003CB537 /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
 		29E7829E28B977A7003CB537 /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
-		29E782A028B97CBB003CB537 /* summonersRift.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = summonersRift.mp3; sourceTree = "<group>"; };
+		29E782A028B97CBB003CB537 /* SR - Early Game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SR - Early Game.mp3"; sourceTree = "<group>"; };
+		29E782A228B98D4F003CB537 /* SR - Late Game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SR - Late Game.mp3"; sourceTree = "<group>"; };
+		29E782A328B98D50003CB537 /* SR - Mid Game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SR - Mid Game.mp3"; sourceTree = "<group>"; };
+		29E782A628B98E43003CB537 /* Enemy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Enemy.mp3; sourceTree = "<group>"; };
+		29E782A828B98EDB003CB537 /* PopStars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PopStars.mp3; sourceTree = "<group>"; };
+		29E782AA28B99400003CB537 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +183,7 @@
 				29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */,
 				29E7827828B78D35003CB537 /* GameView.swift */,
 				29E7829A28B96405003CB537 /* InfoSheetView.swift */,
+				29E782AA28B99400003CB537 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,7 +191,11 @@
 		29E7824E28B6E47B003CB537 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				29E782A028B97CBB003CB537 /* summonersRift.mp3 */,
+				29E782A828B98EDB003CB537 /* PopStars.mp3 */,
+				29E782A628B98E43003CB537 /* Enemy.mp3 */,
+				29E782A328B98D50003CB537 /* SR - Mid Game.mp3 */,
+				29E782A228B98D4F003CB537 /* SR - Late Game.mp3 */,
+				29E782A028B97CBB003CB537 /* SR - Early Game.mp3 */,
 				29E7827428B786BC003CB537 /* mia.wav */,
 			);
 			path = Sounds;
@@ -347,11 +362,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				29E7828728B7FAE1003CB537 /* champions.json in Resources */,
+				29E782A528B98D50003CB537 /* SR - Mid Game.mp3 in Resources */,
 				29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */,
 				29E7827528B786BC003CB537 /* mia.wav in Resources */,
+				29E782A928B98EDB003CB537 /* PopStars.mp3 in Resources */,
 				29E7828528B7F869003CB537 /* buildDataScript.py in Resources */,
-				29E782A128B97CBB003CB537 /* summonersRift.mp3 in Resources */,
+				29E782A128B97CBB003CB537 /* SR - Early Game.mp3 in Resources */,
 				29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */,
+				29E782A428B98D50003CB537 /* SR - Late Game.mp3 in Resources */,
+				29E782A728B98E43003CB537 /* Enemy.mp3 in Resources */,
 				29E7822828B6E099003CB537 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +408,7 @@
 				29E7827928B78D35003CB537 /* GameView.swift in Sources */,
 				29E7827B28B78E05003CB537 /* PlayCardView.swift in Sources */,
 				29E7829728B93E69003CB537 /* Extensions.swift in Sources */,
+				29E782AB28B99400003CB537 /* HomeView.swift in Sources */,
 				29E7825728B6E7C8003CB537 /* AnswerImageWrapper.swift in Sources */,
 				29E7829B28B96405003CB537 /* InfoSheetView.swift in Sources */,
 			);

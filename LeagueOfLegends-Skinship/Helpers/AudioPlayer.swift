@@ -10,11 +10,11 @@ import AVFoundation
 var audioPlayer: AVAudioPlayer?
 var backgroundMusicPlayer: AVAudioPlayer?
 
-func playBackgroundMusic() {
-    if let path = Bundle.main.path(forResource: "summonersRift", ofType: "mp3") {
+func playBackgroundMusic(music: String) {
+    if let path = Bundle.main.path(forResource: music, ofType: "mp3") {
         do {
             backgroundMusicPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            backgroundMusicPlayer?.setVolume(0.5, fadeDuration: 0)
+            backgroundMusicPlayer?.setVolume(0.69, fadeDuration: 0)
             backgroundMusicPlayer?.play()
         } catch {
             print("ERROR: Could not find background music file!")

@@ -10,10 +10,16 @@ import SwiftUI
 @main
 struct LeagueOfLegends_SkinshipApp: App {
 
+    @State var showingGame = false
+    
     var body: some Scene {
         WindowGroup {
-            GameView()
-//            InfoSheetView()
+            if showingGame {
+                GameView()
+            } else {
+                HomeView(showingGame: $showingGame)
+            }
+        
         }
     }
 }
