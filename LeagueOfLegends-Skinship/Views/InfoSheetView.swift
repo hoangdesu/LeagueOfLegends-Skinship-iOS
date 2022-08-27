@@ -54,17 +54,6 @@ struct InfoSheetView: View {
                         FormRowView(firstItem: "CopyRight", secondItem: "2022 all rigths reserved")
                         FormRowView(firstItem: "Version", secondItem: "1.0.0")
                     }
-                    //
-                    //                Section(header: Text("About the Application")) {
-                    //                    FormRowView(firstItem: "Application", secondItem: "Slot Machine")
-                    //                    FormRowView(firstItem: "Platforms", secondItem: "iPhone, iPad, Mac")
-                    //                    FormRowView(firstItem: "Developer", secondItem: "Daniel Vázquez")
-                    //                    FormRowView(firstItem: "UI Designer", secondItem: "Robert Petras")
-                    //                    FormRowView(firstItem: "Music", secondItem: "Dan Lebowitz")
-                    //                    FormRowView(firstItem: "Website", secondItem: "danvz.codes")
-                    //                    FormRowView(firstItem: "CopyRight", secondItem: "2020 all rigths reserved")
-                    //                    FormRowView(firstItem: "Version", secondItem: "1.0.0")
-                    //                }
                 }
                 .font(.system(.body, design: .rounded))
             }}

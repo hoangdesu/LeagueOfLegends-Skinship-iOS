@@ -11,7 +11,7 @@ struct GameView: View {
     
     // MARK: - PROPERTIES
     
-    @StateObject var champVM = ChampionViewModel()
+    @ObservedObject var champVM: ChampionViewModel
     
     @Binding var appState: String
     

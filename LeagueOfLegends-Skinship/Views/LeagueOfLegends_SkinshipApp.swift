@@ -15,6 +15,7 @@ struct LeagueOfLegends_SkinshipApp: App {
 //    }
 
     @State private var appState = "splash"
+    @StateObject var champVM = ChampionViewModel()
     
 //    init() {
 //        print(self.appState)
@@ -35,7 +36,7 @@ struct LeagueOfLegends_SkinshipApp: App {
             } else if appState == "home" {
                 HomeView(appState: $appState)
             } else if appState == "game" {
-                GameView(appState: $appState)
+                GameView(champVM: self.champVM, appState: $appState)
             }
         
         }

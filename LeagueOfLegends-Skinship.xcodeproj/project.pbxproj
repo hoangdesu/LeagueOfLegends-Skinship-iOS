@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		296432EE28BA3007009066BC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296432ED28BA3007009066BC /* SplashScreenView.swift */; };
+		296432F128BA5E2A009066BC /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 296432F028BA5E2A009066BC /* intro.mp4 */; };
 		29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */; };
 		29E7822828B6E099003CB537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E7822728B6E099003CB537 /* Assets.xcassets */; };
 		29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E7822A28B6E099003CB537 /* Preview Assets.xcassets */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		296432ED28BA3007009066BC /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		296432F028BA5E2A009066BC /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		29E7822028B6E096003CB537 /* LoL Skinship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoL Skinship.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueOfLegends_SkinshipApp.swift; sourceTree = "<group>"; };
 		29E7822728B6E099003CB537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		296432EF28BA5E14009066BC /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				296432F028BA5E2A009066BC /* intro.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
 		29E7821728B6E096003CB537 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		29E7822228B6E096003CB537 /* LeagueOfLegends-Skinship */ = {
 			isa = PBXGroup;
 			children = (
+				296432EF28BA5E14009066BC /* Videos */,
 				29E7829128B93713003CB537 /* Docs */,
 				29E7828C28B8EFC4003CB537 /* ViewModel */,
 				29E7828328B7F845003CB537 /* Scripts */,
@@ -372,6 +383,7 @@
 				29E7828528B7F869003CB537 /* buildDataScript.py in Resources */,
 				29E782A128B97CBB003CB537 /* SR - Early Game.mp3 in Resources */,
 				29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */,
+				296432F128BA5E2A009066BC /* intro.mp4 in Resources */,
 				29E782A428B98D50003CB537 /* SR - Late Game.mp3 in Resources */,
 				29E782A728B98E43003CB537 /* Enemy.mp3 in Resources */,
 				29E7822828B6E099003CB537 /* Assets.xcassets in Resources */,
