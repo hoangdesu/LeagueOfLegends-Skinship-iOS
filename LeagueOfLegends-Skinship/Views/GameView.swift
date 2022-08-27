@@ -13,7 +13,7 @@ struct GameView: View {
     
     @StateObject var champVM = ChampionViewModel()
     
-    @Binding var showingGame: Bool
+    @Binding var appState: String
     
     @State var showResetHighscoreAlert = false
     @State var showInfoSheet = false
@@ -43,7 +43,7 @@ struct GameView: View {
                     HStack {
                         Button(action: {
                             withAnimation {
-                                self.showingGame = false
+                                self.appState = "home"
                             }
                         }) {
                             Image(systemName: "arrow.2.circlepath.circle")

@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 class ChampionViewModel: ObservableObject {
+    
+    // app states
+//    @Published var appState = "game"
+    
     let haptics = UINotificationFeedbackGenerator()
     
     @Published var currentChamp: Champion = champions[0]

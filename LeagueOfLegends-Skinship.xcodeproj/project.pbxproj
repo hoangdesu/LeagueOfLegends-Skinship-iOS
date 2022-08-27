@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		296432EE28BA3007009066BC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296432ED28BA3007009066BC /* SplashScreenView.swift */; };
 		29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */; };
 		29E7822828B6E099003CB537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E7822728B6E099003CB537 /* Assets.xcassets */; };
 		29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E7822A28B6E099003CB537 /* Preview Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		296432ED28BA3007009066BC /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		29E7822028B6E096003CB537 /* LoL Skinship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoL Skinship.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueOfLegends_SkinshipApp.swift; sourceTree = "<group>"; };
 		29E7822728B6E099003CB537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				29E7827828B78D35003CB537 /* GameView.swift */,
 				29E7829A28B96405003CB537 /* InfoSheetView.swift */,
 				29E782AA28B99400003CB537 /* HomeView.swift */,
+				296432ED28BA3007009066BC /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */,
 				29E7827728B78700003CB537 /* AudioPlayer.swift in Sources */,
 				29E7825328B6E519003CB537 /* Modifiers.swift in Sources */,
+				296432EE28BA3007009066BC /* SplashScreenView.swift in Sources */,
 				29E7829D28B964D5003CB537 /* VolumeSlider.swift in Sources */,
 				29E7829F28B977A7003CB537 /* CoverView.swift in Sources */,
 				29E7827928B78D35003CB537 /* GameView.swift in Sources */,

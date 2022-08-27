@@ -86,7 +86,8 @@ struct PlayCardView: View {
 }
 //
 struct PlayCardView_Previews: PreviewProvider {
+//    @State static var isShowing = false
     static var previews: some View {
-        GameView(showingGame: .constant(true))
+        GameView(appState: .constant("game"))
     }
 }

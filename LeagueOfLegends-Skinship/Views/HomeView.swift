@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var showingGame: Bool
+    @Binding var appState: String
     
     var body: some View {
         Button {
             withAnimation {
-                self.showingGame = true
+                self.appState = "game"
             }
         } label: {
             Text("Click to play")
