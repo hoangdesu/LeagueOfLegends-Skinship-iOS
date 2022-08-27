@@ -87,6 +87,6 @@ struct PlayCardView: View {
 //
 struct PlayCardView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(showingGame: .constant(true))
     }
 }

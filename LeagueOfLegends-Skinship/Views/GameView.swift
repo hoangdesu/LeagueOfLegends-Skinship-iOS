@@ -13,12 +13,14 @@ struct GameView: View {
     
     @StateObject var champVM = ChampionViewModel()
     
+    @Binding var showingGame: Bool
+    
     @State var showResetHighscoreAlert = false
     @State var showInfoSheet = false
     
     
     // MARK: - FUNCTIONS
-   
+    
     
     // MARK: - VIEW
     var body: some View {
@@ -40,7 +42,9 @@ struct GameView: View {
                     // MARK: - Header
                     HStack {
                         Button(action: {
-                            //                            self.resetGame()
+                            withAnimation {
+                                self.showingGame = false
+                            }
                         }) {
                             Image(systemName: "arrow.2.circlepath.circle")
                         }
@@ -77,17 +81,17 @@ struct GameView: View {
                                 .scoreNumberStyle()
                                 .modifier(ScoreNumberModifier())
                                 .onAppear {
-//                                    self.champVM.highscore = UserDefaults.standard.integer(forKey: "highScore")
+                                    //                                    self.champVM.highscore = UserDefaults.standard.integer(forKey: "highScore")
                                 }
-                                
-                                    
+                            
+                            
                             Text("High\nScore".uppercased())
                                 .scoreLabelStyle()
                                 .multilineTextAlignment(.leading)
                         }
                         .modifier(ScoreContainerModifier())
                         .onTapGesture {
-//                                    self.champVM.highscore = 0
+                            //                                    self.champVM.highscore = 0
                             self.showResetHighscoreAlert = true
                         }
                         .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
@@ -187,8 +191,8 @@ struct GameView: View {
     }
 }
 
-struct GameView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView()
-    }
-}
+//struct GameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameView()
+//    }
+//}

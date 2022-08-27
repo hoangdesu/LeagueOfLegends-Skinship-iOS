@@ -15,7 +15,7 @@ struct LeagueOfLegends_SkinshipApp: App {
     var body: some Scene {
         WindowGroup {
             if showingGame {
-                GameView()
+                GameView(showingGame: $showingGame)
             } else {
                 HomeView(showingGame: $showingGame)
             }
