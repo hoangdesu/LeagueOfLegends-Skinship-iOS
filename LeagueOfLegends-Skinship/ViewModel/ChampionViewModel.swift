@@ -11,7 +11,7 @@ import SwiftUI
 class ChampionViewModel: ObservableObject {
     
     // app states
-    @Published var appState = "game"
+//    @Published var appState = "game"
     
     let haptics = UINotificationFeedbackGenerator()
     

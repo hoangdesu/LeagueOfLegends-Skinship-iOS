@@ -11,8 +11,7 @@ struct GameView: View {
     
     // MARK: - PROPERTIES
     
-    @ObservedObject var champVM: ChampionViewModel
-    
+    @StateObject var champVM = ChampionViewModel()
     @Binding var appState: String
     
     @State var showResetHighscoreAlert = false
