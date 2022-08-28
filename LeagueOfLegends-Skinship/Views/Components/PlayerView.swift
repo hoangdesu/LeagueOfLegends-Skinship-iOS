@@ -41,7 +41,7 @@ class LoopingHomescreenVideoPlayerUIView: UIView {
         super.init(frame: frame)
 
         // Load the resource
-        let fileUrl = Bundle.main.url(forResource: "homescreen", withExtension: "mp4")!
+        let fileUrl = Bundle.main.url(forResource: "homescreen-background", withExtension: "mp4")!
         let asset = AVAsset(url: fileUrl)
         let item = AVPlayerItem(asset: asset)
         
