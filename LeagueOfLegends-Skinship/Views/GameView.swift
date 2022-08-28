@@ -184,6 +184,9 @@ struct GameView: View {
             self.champVM.resetGameState()
             playBackgroundMusic(music: "SR - Early Game")
         }
+        .onDisappear {
+            backgroundMusicPlayer?.stop()
+        }
         .sheet(isPresented: $showInfoSheet) {
             InfoSheetView(champVM: self.champVM)
         }

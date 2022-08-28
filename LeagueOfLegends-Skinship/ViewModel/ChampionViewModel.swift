@@ -34,6 +34,7 @@ class ChampionViewModel: ObservableObject {
     // modal states
     @Published var showGameViewRankedStopModal = false
     @Published var animatingRankedStopModal = false
+    @Published var correctAnswer = ""
     
     init() {
         self.resetGameState()

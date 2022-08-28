@@ -35,7 +35,7 @@ struct ModalView: View {
                     //                        .resizable()
                     //                        .scaledToFit()
                     //                        .frame(maxHeight: 72)
-                    Text("Sorry you lost :(")
+                    Text("Correct answer: \(self.champVM.correctAnswer)")
                         .font(.system(.body, design: .rounded))
                         .lineLimit(2)
                         .multilineTextAlignment(.center)

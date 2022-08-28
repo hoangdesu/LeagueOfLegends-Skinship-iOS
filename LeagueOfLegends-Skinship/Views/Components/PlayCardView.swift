@@ -50,7 +50,9 @@ struct PlayCardView: View {
                             
                             // dark magic happens here: swap the front with the back image at flip point and get new back image
                             //                            self.frontImage = self.backImage
+                            
                             //                            self.backImage = self.champVM.nextChampSkin
+                            self.champVM.correctAnswer = self.champVM.currentChamp.name
                             self.champVM.currentChamp = self.champVM.nextChamp
                             //                            self.champVM.nextChamp = champions.randomElement()!
                             champVM.generateNextChamp()
