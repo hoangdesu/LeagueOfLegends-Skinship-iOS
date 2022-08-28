@@ -47,8 +47,10 @@ struct ModalView: View {
 //                        self.animatingModal = false
 //                        self.activateBet10()
 //                        self.coins = 100
+                        withAnimation(Animation.easeOut(duration: 0.5)) {
                         self.champVM.animatingRankedStopModal = false
                         self.champVM.showGameViewRankedStopModal = false
+                        }
                         
                         self.champVM.resetGameState()
                         

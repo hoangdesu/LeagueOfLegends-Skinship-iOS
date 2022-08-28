@@ -167,6 +167,7 @@ struct GameView: View {
                 } // VStack
                 .padding(.top, 10)
             } // VStack
+            .blur(radius: self.champVM.showGameViewRankedStopModal ? 5 : 0, opaque: false)
             
             
             // MARK: - Pop Up
