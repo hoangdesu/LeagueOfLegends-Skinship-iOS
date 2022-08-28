@@ -30,12 +30,12 @@ struct ModalView: View {
                 Spacer()
                 
                 VStack(alignment: .center
-                , spacing: 16) {
-//                    Image("gfx-seven-reel")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(maxHeight: 72)
-                    Text("Bad luck! You lost all of the coins. \nLet's play again!")
+                       , spacing: 16) {
+                    //                    Image("gfx-seven-reel")
+                    //                        .resizable()
+                    //                        .scaledToFit()
+                    //                        .frame(maxHeight: 72)
+                    Text("Sorry you lost :(")
                         .font(.system(.body, design: .rounded))
                         .lineLimit(2)
                         .multilineTextAlignment(.center)
@@ -43,13 +43,13 @@ struct ModalView: View {
                         .layoutPriority(1)
                     
                     Button(action: {
-//                        self.showingModal = false
-//                        self.animatingModal = false
-//                        self.activateBet10()
-//                        self.coins = 100
+                        //                        self.showingModal = false
+                        //                        self.animatingModal = false
+                        //                        self.activateBet10()
+                        //                        self.coins = 100
                         withAnimation(Animation.easeOut(duration: 0.5)) {
-                        self.champVM.animatingRankedStopModal = false
-                        self.champVM.showGameViewRankedStopModal = false
+                            self.champVM.animatingRankedStopModal = false
+                            self.champVM.showGameViewRankedStopModal = false
                         }
                         
                         self.champVM.resetGameState()
@@ -66,7 +66,7 @@ struct ModalView: View {
                                 Capsule()
                                     .strokeBorder(lineWidth: 1.75)
                                     .foregroundColor(Color("ColorPink"))
-                        )
+                            )
                     }
                 }
                 Spacer()
@@ -81,6 +81,10 @@ struct ModalView: View {
             .onAppear(perform: {
                 self.champVM.animatingRankedStopModal = true
             })
+            .onDisappear {
+                self.champVM.showGameViewRankedStopModal = false
+                self.champVM.animatingRankedStopModal = false
+            }
         }
     }
 }

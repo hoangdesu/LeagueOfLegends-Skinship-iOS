@@ -85,37 +85,38 @@ struct GameView: View {
                         }
                         .modifier(ScoreContainerModifier())
                         
-                        Spacer()
-                            .frame(width: 80)
-                        
-                        // High score
-                        HStack {
-                            Text("\(self.champVM.highscore)")
-                                .scoreNumberStyle()
-                                .modifier(ScoreNumberModifier())
-                                .onAppear {
-                                    //                                    self.champVM.highscore = UserDefaults.standard.integer(forKey: "highScore")
-                                }
+                        if gameMode == "ranked" {
+                            Spacer()
+                                .frame(width: 80)
                             
-                            
-                            Text("High\nScore".uppercased())
-                                .scoreLabelStyle()
-                                .multilineTextAlignment(.leading)
-                        }
-                        .modifier(ScoreContainerModifier())
-                        .onTapGesture {
-                            //                                    self.champVM.highscore = 0
-                            self.showResetHighscoreAlert = true
-                        }
-                        .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
-                            Button("Reset", role: .destructive) {
-                                self.champVM.highscore = 0
+                            // High score
+                            HStack {
+                                Text("\(self.champVM.highscore)")
+                                    .scoreNumberStyle()
+                                    .modifier(ScoreNumberModifier())
+                                    .onAppear {
+                                        //                                    self.champVM.highscore = UserDefaults.standard.integer(forKey: "highScore")
+                                    }
+                                
+                                
+                                Text("High\nScore".uppercased())
+                                    .scoreLabelStyle()
+                                    .multilineTextAlignment(.leading)
                             }
-                        }, message: {
-                            Text("Do you want to reset high score?")
-                        })
-                    }
-                }
+                            .modifier(ScoreContainerModifier())
+                            .onTapGesture {
+                                //                                    self.champVM.highscore = 0
+                                self.showResetHighscoreAlert = true
+                            }
+                            .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
+                                Button("Reset", role: .destructive) {
+                                    self.champVM.highscore = 0
+                                }
+                            }, message: {
+                                Text("Do you want to reset high score?")
+                            })
+                        }
+                    }}
                 //                .offset(y: -20)
                 //                .padding(.bottom, -20)
                 
@@ -181,6 +182,7 @@ struct GameView: View {
         } // ZStack
         .onAppear {
             self.champVM.resetGameState()
+            playBackgroundMusic(music: "SR - Early Game")
         }
         .sheet(isPresented: $showInfoSheet) {
             InfoSheetView(champVM: self.champVM)
