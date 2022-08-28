@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29639EF728BBAD0900FDE2C0 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EF628BBAD0900FDE2C0 /* PlayerView.swift */; };
+		29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */; };
 		29639EF928BBAED800FDE2C0 /* homescreen-background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EF828BBAED800FDE2C0 /* homescreen-background.mp4 */; };
 		296432EE28BA3007009066BC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296432ED28BA3007009066BC /* SplashScreenView.swift */; };
 		296432F128BA5E2A009066BC /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 296432F028BA5E2A009066BC /* intro.mp4 */; };
@@ -60,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		29639EF628BBAD0900FDE2C0 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingHomescreenVideoPlayerView.swift; sourceTree = "<group>"; };
 		29639EF828BBAED800FDE2C0 /* homescreen-background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "homescreen-background.mp4"; sourceTree = "<group>"; };
 		296432ED28BA3007009066BC /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		296432F028BA5E2A009066BC /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 				29E7827A28B78E05003CB537 /* PlayCardView.swift */,
 				29E7829C28B964D5003CB537 /* VolumeSlider.swift */,
 				29E7829E28B977A7003CB537 /* CoverView.swift */,
-				29639EF628BBAD0900FDE2C0 /* PlayerView.swift */,
+				29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */,
 				29E7828028B7AA67003CB537 /* ModelData.swift in Sources */,
 				29E7829928B9566E003CB537 /* Player.swift in Sources */,
-				29639EF728BBAD0900FDE2C0 /* PlayerView.swift in Sources */,
+				29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */,
 				29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */,
 				29E7827728B78700003CB537 /* AudioPlayer.swift in Sources */,
 				29E7825328B6E519003CB537 /* Modifiers.swift in Sources */,
