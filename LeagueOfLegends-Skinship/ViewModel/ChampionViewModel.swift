@@ -10,6 +10,7 @@ import SwiftUI
 
 class ChampionViewModel: ObservableObject {
     
+    // MARK: - STATES
     let haptics = UINotificationFeedbackGenerator()
     
     @Published var currentChamp: Champion = champions[0]
@@ -22,37 +23,55 @@ class ChampionViewModel: ObservableObject {
     @Published var score: Int = 0
     @AppStorage("highScore") var highscore: Int = 0
     
-    @Published var backgroundMusicVolume: Double = 0.69
+    
     @Published var backgroundMusic = "SR - Early Game"
+    @Published var backgroundMusicVolume: Double = 0.69
     
     // animation states
     @Published var isAnimating = false
     @Published var rotationDirection = 1.0 // 1.0: left to right, -1.0: right to left
     
+    // modal states
+    @Published var showGameViewRankedStopModal = false
+    @Published var animatingRankedStopModal = false
+    
     init() {
         self.resetGameState()
-        
     }
     
-    func gamePlayController(choice: Champion) {
-        
-        self.checkAnswer(choice)
-//        self.isAnimating = true
+    func gamePlayController(choice: Champion, gameMode: String) {
         
         
-//        self.currentChamp = self.nextChamp
-//        self.nextChamp = champions.randomElement()!
-//
-//        self.generateCurrentChampSkin()
-//        self.generateNextChampSkin()
-//
-//        self.generate4RandomChoices()
-//
-//
-//        print("CHOICE ID: \(choice.id), CURRENT ID: \(currentChamp.id)")
-//        print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)\n")
+        if currentChamp.id == choice.id {
+            print("CORRECT ANSWER")
+            
+            self.score += 1
+            
+            // update new highscore
+            if self.score > self.highscore {
+                self.highscore = self.score
+//                UserDefaults.standard.set(highscore, forKey: "highScore")
+//                highscore =
+            }
+            
+            self.rotationDirection = 1.0
+            haptics.notificationOccurred(.success)
+           
+        } else {
+            print("WRONG ANSWER")
+            
+            self.score -= 1
+            self.rotationDirection = -1.0
+            haptics.notificationOccurred(.error)
+            
+            if gameMode == "ranked" {
+                self.showGameViewRankedStopModal = true
+            }
+            
+        }
         
         
+        self.isAnimating = true
         
     }
     
@@ -151,39 +170,6 @@ class ChampionViewModel: ObservableObject {
         self.nextChampSkin = self.nextChamp.skins.randomElement()!.loading
         print("Next champ skin: \(self.nextChampSkin)")
     }
-    
-    func checkAnswer(_ choice: Champion) {
-        if currentChamp.id == choice.id {
-            print("CORRECT ANSWER")
-            
-            self.score += 1
-            
-            // update new highscore
-            if self.score > self.highscore {
-                self.highscore = self.score
-//                UserDefaults.standard.set(highscore, forKey: "highScore")
-//                highscore =
-            }
-            
-            self.rotationDirection = 1.0
-            haptics.notificationOccurred(.success)
-           
-        } else {
-            print("WRONG ANSWER")
-            
-            self.score -= 1
-            self.rotationDirection = -1.0
-            haptics.notificationOccurred(.error)
-        }
-        
-        
-        self.generateNextChamp()
-        self.generateNextChampSkin()
-//        self.generate4RandomChoices()
-        
-        self.isAnimating = true
-    }
-    
     
     
 }

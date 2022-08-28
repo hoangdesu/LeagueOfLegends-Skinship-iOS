@@ -16,11 +16,15 @@ struct GameView: View {
     @Binding var appState: String
     @Binding var gameMode: String
     
-    @State var showResetHighscoreAlert = false
-    @State var showInfoSheet = false
+    @State private var showResetHighscoreAlert = false
+    @State private var showInfoSheet = false
     
     
     // MARK: - FUNCTIONS
+    
+    func buttonTapHandler(choice: Champion) {
+        self.champVM.gamePlayController(choice: choice, gameMode: self.gameMode)
+    }
     
     
     // MARK: - VIEW
@@ -28,9 +32,9 @@ struct GameView: View {
         
         ZStack {
             Image("background")
-                
+            
                 .resizable()
-                
+            
                 .aspectRatio(contentMode: .fill)
                 .opacity(0.9)
                 .blur(radius: 4)
@@ -40,9 +44,8 @@ struct GameView: View {
             
             
             VStack {
-//                                Color(.red)
+                //                                Color(.red)
                 //                Text("Score: \(self.champVM.score)")
-                
                 
                 
                 VStack {
@@ -129,7 +132,7 @@ struct GameView: View {
                     
                     HStack {
                         Button {
-                            self.champVM.gamePlayController(choice: champVM.choices[0])
+                            self.buttonTapHandler(choice: champVM.choices[0])
                             
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[0].defaultSkin)
@@ -139,7 +142,7 @@ struct GameView: View {
                             .frame(width: 50)
                         
                         Button {
-                            self.champVM.gamePlayController(choice: champVM.choices[1])
+                            self.buttonTapHandler(choice: champVM.choices[1])
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[1].defaultSkin)
                         }
@@ -147,7 +150,7 @@ struct GameView: View {
                     
                     HStack {
                         Button {
-                            self.champVM.gamePlayController(choice: champVM.choices[2])
+                            self.buttonTapHandler(choice: champVM.choices[2])
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[2].defaultSkin)
                         }
@@ -156,8 +159,7 @@ struct GameView: View {
                             .frame(width: 50)
                         
                         Button {
-                            self.champVM.gamePlayController(choice: champVM.choices[3])
-                            
+                            self.buttonTapHandler(choice: champVM.choices[3])
                         } label: {
                             AnswerImageWrapper(image: champVM.choices[3].defaultSkin)
                         }
@@ -165,34 +167,16 @@ struct GameView: View {
                 } // VStack
                 .padding(.top, 10)
             } // VStack
-            //            // MARK: - Buttons
-            //            .overlay(
-            //                // Reset
-            //                Button(action: {
-            ////                        self.resetGame()
-            //                }) {
-            //                    Image(systemName: "arrow.2.circlepath.circle")
-            //                }
-            //                .modifier(ButtonModifier()), alignment: .topLeading
-            //        )
-            //            .overlay(
-            //                // Info
-            //                Button(action: {
-            ////                        self.showingInfoView = true
-            //                }) {
-            //                    Image(systemName: "info.circle")
-            //                }
-            //                .modifier(ButtonModifier()), alignment: .topTrailing
-            //        )
-            //            .padding()
-            //            .frame(maxWidth: 720)
-            ////
-            ////                // MARK: - Blur efect
-            ////                .blur(radius: $showingModal.wrappedValue ? 5 : 0, opaque: false)
-            //
-            ////                .overlay(
-            ////                    Text("Overlay")
-            ////                )
+            
+            
+            // MARK: - Pop Up
+            if self.champVM.showGameViewRankedStopModal {
+                ModalView(champVM: self.champVM)
+            }
+            
+            
+            
+            
         } // ZStack
         .onAppear {
             self.champVM.resetGameState()
@@ -200,9 +184,9 @@ struct GameView: View {
         .sheet(isPresented: $showInfoSheet) {
             InfoSheetView(champVM: self.champVM)
         }
-       
-    }
         
+    }
+    
 }
 
 //struct GameView_Previews: PreviewProvider {
