@@ -12,7 +12,7 @@ struct SplashScreenView: View {
     
     @Binding var appState: String
     
-    let splashScreenDuration = 6.0
+    let splashScreenDuration = 0.5 // use 6.0 for production
     
     let video = "intro"
     @State var introPlayer = AVPlayer()

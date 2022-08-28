@@ -11,14 +11,19 @@ struct HomeView: View {
     @Binding var appState: String
     
     var body: some View {
-        Button {
-            withAnimation {
-                self.appState = "game"
+        ZStack {
+            LoopingHomescreenVideoPlayerView()
+                .ignoresSafeArea()
+            
+            Button {
+                withAnimation {
+                    self.appState = "game"
+                }
+            } label: {
+                Text("Click to play")
             }
-        } label: {
-            Text("Click to play")
+            
         }
-         
     }
 }
 
