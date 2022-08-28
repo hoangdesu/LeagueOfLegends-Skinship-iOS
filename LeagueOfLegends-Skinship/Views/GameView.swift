@@ -27,18 +27,24 @@ struct GameView: View {
         
         ZStack {
             Image("background")
-                .ignoresSafeArea(.all)
+                
+                .resizable()
+                
+                .aspectRatio(contentMode: .fill)
                 .opacity(0.9)
                 .blur(radius: 4)
+                .ignoresSafeArea()
+                .scaleEffect(1.2)
+                .offset(x: 50)
             
             
             VStack {
-                //                Color(.red)
+//                                Color(.red)
                 //                Text("Score: \(self.champVM.score)")
                 
                 
                 
-                VStack{
+                VStack {
                     // MARK: - Header
                     HStack {
                         Button(action: {
@@ -184,7 +190,6 @@ struct GameView: View {
             ////                    Text("Overlay")
             ////                )
         } // ZStack
-        .ignoresSafeArea(.all)
         .sheet(isPresented: $showInfoSheet) {
             InfoSheetView(champVM: self.champVM)
         }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */; };
-		29639EF928BBAED800FDE2C0 /* homescreen-background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EF828BBAED800FDE2C0 /* homescreen-background.mp4 */; };
+		29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */; };
 		296432EE28BA3007009066BC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296432ED28BA3007009066BC /* SplashScreenView.swift */; };
 		296432F128BA5E2A009066BC /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 296432F028BA5E2A009066BC /* intro.mp4 */; };
 		29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */; };
@@ -61,7 +61,8 @@
 
 /* Begin PBXFileReference section */
 		29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingHomescreenVideoPlayerView.swift; sourceTree = "<group>"; };
-		29639EF828BBAED800FDE2C0 /* homescreen-background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "homescreen-background.mp4"; sourceTree = "<group>"; };
+		29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LeagueOfLegends-Skinship.entitlements"; sourceTree = "<group>"; };
+		29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "homescreen-background.mp4"; sourceTree = "<group>"; };
 		296432ED28BA3007009066BC /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		296432F028BA5E2A009066BC /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		29E7822028B6E096003CB537 /* LoL Skinship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoL Skinship.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,7 +127,7 @@
 		296432EF28BA5E14009066BC /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				29639EF828BBAED800FDE2C0 /* homescreen-background.mp4 */,
+				29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */,
 				296432F028BA5E2A009066BC /* intro.mp4 */,
 			);
 			path = Videos;
@@ -155,6 +156,7 @@
 		29E7822228B6E096003CB537 /* LeagueOfLegends-Skinship */ = {
 			isa = PBXGroup;
 			children = (
+				29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */,
 				296432EF28BA5E14009066BC /* Videos */,
 				29E7829128B93713003CB537 /* Docs */,
 				29E7828C28B8EFC4003CB537 /* ViewModel */,
@@ -382,7 +384,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				29E7828728B7FAE1003CB537 /* champions.json in Resources */,
-				29639EF928BBAED800FDE2C0 /* homescreen-background.mp4 in Resources */,
 				29E782A528B98D50003CB537 /* SR - Mid Game.mp3 in Resources */,
 				29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */,
 				29E7827528B786BC003CB537 /* mia.wav in Resources */,
@@ -393,6 +394,7 @@
 				296432F128BA5E2A009066BC /* intro.mp4 in Resources */,
 				29E782A428B98D50003CB537 /* SR - Late Game.mp3 in Resources */,
 				29E782A728B98E43003CB537 /* Enemy.mp3 in Resources */,
+				29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */,
 				29E7822828B6E099003CB537 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,18 +594,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "LeagueOfLegends-Skinship/LeagueOfLegends-Skinship.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LeagueOfLegends-Skinship/Preview Content\"";
 				DEVELOPMENT_TEAM = AHZYNUTR8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -611,6 +619,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hoangdesu.LeagueOfLegends-Skinship";
 				PRODUCT_NAME = "LoL Skinship";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -622,18 +631,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "LeagueOfLegends-Skinship/LeagueOfLegends-Skinship.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LeagueOfLegends-Skinship/Preview Content\"";
 				DEVELOPMENT_TEAM = AHZYNUTR8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -641,6 +656,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hoangdesu.LeagueOfLegends-Skinship";
 				PRODUCT_NAME = "LoL Skinship";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

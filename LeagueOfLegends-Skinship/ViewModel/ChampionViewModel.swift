@@ -40,18 +40,18 @@ class ChampionViewModel: ObservableObject {
         
         self.checkAnswer(choice)
         
+//        self.currentChamp = self.nextChamp
+//        self.nextChamp = champions.randomElement()!
+//        
+//        self.generateCurrentChampSkin()
+//        self.generateNextChampSkin()
+//        
+//        self.generate4RandomChoices()
+//        
+//        
+//        print("CHOICE ID: \(choice.id), CURRENT ID: \(currentChamp.id)")
+//        print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)\n")
         
-        self.currentChamp = self.nextChamp
-        self.nextChamp = champions.randomElement()!
-        
-        self.generateCurrentChampSkin()
-        self.generateNextChampSkin()
-        
-        self.generate4RandomChoices()
-        
-        
-        print("CHOICE ID: \(choice.id), CURRENT ID: \(currentChamp.id)")
-        print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)\n")
         
         
     }

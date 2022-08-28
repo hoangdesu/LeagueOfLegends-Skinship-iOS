@@ -24,7 +24,7 @@ struct PlayCardView: View {
     var body: some View {
         ZStack {
             ZStack {
-                Image(self.frontImage)
+                Image(self.champVM.currentChampSkin)
                     .scaleEffect(0.7)
                     .shadow(color: .green, radius: 10, x: 2, y: 2)
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
@@ -56,8 +56,19 @@ struct PlayCardView: View {
                         if self.rotation == 90 * self.champVM.rotationDirection || self.rotation == 270 * self.champVM.rotationDirection {
                             
                             // dark magic happens here: swap the front with the back image at flip point and get new back image
-                            self.frontImage = self.backImage
-                            self.backImage = self.champVM.nextChampSkin
+//                            self.frontImage = self.backImage
+//                            self.backImage = self.champVM.nextChampSkin
+                            self.champVM.currentChamp = self.champVM.nextChamp
+//                            self.champVM.nextChamp = champions.randomElement()!
+                            champVM.generateNextChamp()
+                            self.champVM.generateCurrentChampSkin()
+                            self.champVM.generateNextChampSkin()
+                            
+                            self.champVM.generate4RandomChoices()
+                            
+                            
+//                            print("CHOICE ID: \(choice.id), CURRENT ID: \(champVM.currentChamp.id)")
+                            print("-- Current champ = \(self.champVM.currentChamp.name), Next champ = \(champVM.nextChamp.name)\n")
                             
                             
                         } else if self.rotation == 360 * self.champVM.rotationDirection || self.rotation == 180 * self.champVM.rotationDirection {
