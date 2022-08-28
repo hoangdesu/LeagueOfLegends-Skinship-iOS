@@ -12,7 +12,9 @@ struct GameView: View {
     // MARK: - PROPERTIES
     
     @StateObject var champVM = ChampionViewModel()
+    
     @Binding var appState: String
+    @Binding var gameMode: String
     
     @State var showResetHighscoreAlert = false
     @State var showInfoSheet = false
@@ -44,6 +46,7 @@ struct GameView: View {
                 
                 
                 VStack {
+                    
                     // MARK: - Header
                     HStack {
                         Button(action: {
@@ -61,6 +64,8 @@ struct GameView: View {
                             Image(systemName: "info.circle")
                         }
                         .modifier(ButtonModifier())
+                        
+                        Text("Game mode: \(self.gameMode)")
                     }
                     
                     // MARK: - Scores

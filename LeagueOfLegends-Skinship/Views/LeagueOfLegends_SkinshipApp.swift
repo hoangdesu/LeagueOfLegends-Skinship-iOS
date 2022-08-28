@@ -15,6 +15,7 @@ struct LeagueOfLegends_SkinshipApp: App {
 //    }
 
     @State private var appState = "splash"
+    @State private var gameMode = "normal"
     
     
 //    init() {
@@ -34,9 +35,9 @@ struct LeagueOfLegends_SkinshipApp: App {
             if self.appState == "splash" {
                 SplashScreenView(appState: $appState)
             } else if self.appState == "home" {
-                HomeView(appState: $appState)
+                HomeView(appState: $appState, gameMode: $gameMode)
             } else if self.appState == "game" {
-                GameView(appState: $appState)
+                GameView(appState: $appState, gameMode: $gameMode)
             }
         
         }
