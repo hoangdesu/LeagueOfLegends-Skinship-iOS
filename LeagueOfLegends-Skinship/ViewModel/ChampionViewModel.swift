@@ -11,7 +11,7 @@ import SwiftUI
 class ChampionViewModel: ObservableObject {
     
     // app states
-//    @Published var appState = "game"
+    @Published var appState = "game"
     
     let haptics = UINotificationFeedbackGenerator()
     
@@ -34,21 +34,24 @@ class ChampionViewModel: ObservableObject {
     
     init() {
         self.resetGameState()
+        
     }
     
     func gamePlayController(choice: Champion) {
         
         self.checkAnswer(choice)
+//        self.isAnimating = true
+        
         
 //        self.currentChamp = self.nextChamp
 //        self.nextChamp = champions.randomElement()!
-//        
+//
 //        self.generateCurrentChampSkin()
 //        self.generateNextChampSkin()
-//        
+//
 //        self.generate4RandomChoices()
-//        
-//        
+//
+//
 //        print("CHOICE ID: \(choice.id), CURRENT ID: \(currentChamp.id)")
 //        print("-- Current champ = \(self.currentChamp.name), Next champ = \(nextChamp.name)\n")
         
@@ -95,6 +98,8 @@ class ChampionViewModel: ObservableObject {
         
         self.generate4RandomChoices()
         self.score = 0
+//
+//        self.isAnimating = false
         
 //        playBackgroundMusic(music: "SR - Early Game")
     }
@@ -174,7 +179,12 @@ class ChampionViewModel: ObservableObject {
             haptics.notificationOccurred(.error)
         }
         
-        self.isAnimating.toggle()
+        
+        self.generateNextChamp()
+        self.generateNextChampSkin()
+//        self.generate4RandomChoices()
+        
+        self.isAnimating = true
     }
     
     

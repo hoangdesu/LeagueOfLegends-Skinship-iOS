@@ -10,16 +10,9 @@ import SwiftUI
 struct PlayCardView: View {
     @ObservedObject var champVM: ChampionViewModel
     
-    @State private var frontImage: String
-    @State private var backImage: String
     @State private var rotation: Double = 0
     @State private var showAnswer: Bool = false
     
-    init(champVM: ChampionViewModel, frontImage: String, backImage: String) {
-        self.champVM = champVM
-        self.frontImage = frontImage
-        self.backImage = backImage
-    }
     
     var body: some View {
         ZStack {
@@ -56,10 +49,10 @@ struct PlayCardView: View {
                         if self.rotation == 90 * self.champVM.rotationDirection || self.rotation == 270 * self.champVM.rotationDirection {
                             
                             // dark magic happens here: swap the front with the back image at flip point and get new back image
-//                            self.frontImage = self.backImage
-//                            self.backImage = self.champVM.nextChampSkin
+                            //                            self.frontImage = self.backImage
+                            //                            self.backImage = self.champVM.nextChampSkin
                             self.champVM.currentChamp = self.champVM.nextChamp
-//                            self.champVM.nextChamp = champions.randomElement()!
+                            //                            self.champVM.nextChamp = champions.randomElement()!
                             champVM.generateNextChamp()
                             self.champVM.generateCurrentChampSkin()
                             self.champVM.generateNextChampSkin()
@@ -67,13 +60,13 @@ struct PlayCardView: View {
                             self.champVM.generate4RandomChoices()
                             
                             
-//                            print("CHOICE ID: \(choice.id), CURRENT ID: \(champVM.currentChamp.id)")
-                            print("-- Current champ = \(self.champVM.currentChamp.name), Next champ = \(champVM.nextChamp.name)\n")
+                            //                            print("CHOICE ID: \(choice.id), CURRENT ID: \(champVM.currentChamp.id)")
+                            print("-- Current champ = \(self.champVM.currentChamp.name), Next champ = \(self.champVM.nextChamp.name)\n")
                             
                             
                         } else if self.rotation == 360 * self.champVM.rotationDirection || self.rotation == 180 * self.champVM.rotationDirection {
                             self.champVM.isAnimating = false
-//                            self.champVM.rotationDirection = -self.champVM.rotationDirection // nice bug/feature: card will spin for 1 full rotatation then change image
+                            //                            self.champVM.rotationDirection = -self.champVM.rotationDirection // nice bug/feature: card will spin for 1 full rotatation then change image
                         }
                         
                         if self.rotation == 360 * self.champVM.rotationDirection {
@@ -97,10 +90,9 @@ struct PlayCardView: View {
 }
 //
 struct PlayCardView_Previews: PreviewProvider {
-//    @State static var isShowing = false
     @StateObject static var champVM = ChampionViewModel()
     static var previews: some View {
-//        GameView(appState: )
+        //        GameView(appState: )
         GameView(champVM: self.champVM, appState: .constant("game"))
     }
 }

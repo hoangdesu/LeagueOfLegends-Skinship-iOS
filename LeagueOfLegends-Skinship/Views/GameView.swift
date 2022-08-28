@@ -114,7 +114,7 @@ struct GameView: View {
                 
                 
                 // MARK: - Play Card View
-                PlayCardView(champVM: self.champVM, frontImage: self.champVM.currentChampSkin, backImage: self.champVM.nextChampSkin)
+                PlayCardView(champVM: self.champVM)
                 
                 
                 // MARK: - Selections
@@ -190,10 +190,15 @@ struct GameView: View {
             ////                    Text("Overlay")
             ////                )
         } // ZStack
+        .onAppear {
+            self.champVM.resetGameState()
+        }
         .sheet(isPresented: $showInfoSheet) {
             InfoSheetView(champVM: self.champVM)
         }
+       
     }
+        
 }
 
 //struct GameView_Previews: PreviewProvider {
