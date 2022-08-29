@@ -10,7 +10,7 @@ import AVKit
 
 struct SplashScreenView: View {
     
-    @Binding var appState: String
+    @Binding var appState: AppState
     
     let splashScreenDuration = 1.0 // use 8.0 for production
     
@@ -35,7 +35,7 @@ struct SplashScreenView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.splashScreenDuration) {
                 withAnimation(.easeIn(duration: 2.0)) {
-                    self.appState = "home"
+                    self.appState = .home
                 }
                 
             }

@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     //    app states
-    @Binding var appState: String
+    @Binding var appState: AppState
     @Binding var gameMode: String
     
     var body: some View {
@@ -28,7 +28,7 @@ struct HomeView: View {
                 
                 Button {
                     withAnimation {
-                        self.appState = "game"
+                        self.appState = .game
                         self.gameMode = "normal"
                     }
                     playSoundEffect(sound: "gamestart", type: "mp3", volume: 1.0)
@@ -44,7 +44,7 @@ struct HomeView: View {
                 
                 Button {
                     withAnimation(.easeOut(duration: 1)) {
-                        self.appState = "game"
+                        self.appState = .game
                         self.gameMode = "ranked"
                     }
                     playSoundEffect(sound: "gamestart", type: "mp3", volume: 1.0)
@@ -60,7 +60,7 @@ struct HomeView: View {
                 
                 Button {
                     withAnimation {
-                        self.appState = "tutorial"
+                        self.appState = .tutorial
                     }
                     
                     

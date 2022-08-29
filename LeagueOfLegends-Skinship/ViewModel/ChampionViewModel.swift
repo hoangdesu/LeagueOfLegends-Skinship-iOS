@@ -5,6 +5,16 @@
 //  Created by ドロケ on 26/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ */
+
 import Foundation
 import SwiftUI
 
@@ -27,6 +37,7 @@ class ChampionViewModel: ObservableObject {
     
     @Published var backgroundMusic = "SR - Early Game"
     @Published var backgroundMusicVolume: Double = 0.69
+    @Published var playNewHighScoreOnce = false
     
     // animation states
     @Published var isAnimating = false
@@ -37,19 +48,14 @@ class ChampionViewModel: ObservableObject {
     @Published var animatingRankedStopModal = false
     @Published var correctAnswer = ""
     
-    @Published var playNewHighScoreOnce = false
-
     
     init() {
         self.resetGameState()
     }
     
     func gamePlayController(choice: Champion, gameMode: String) {
-        
-        
         if currentChamp.id == choice.id {
             print("CORRECT ANSWER")
-            
             
             self.score += 1
             if self.score % 5 == 0 {
@@ -58,7 +64,6 @@ class ChampionViewModel: ObservableObject {
             
             // update new highscore
             if self.score > self.highscore {
-                
                 self.highscore = self.score
                 self.hasNewTopPlayer = true
             }
@@ -72,8 +77,6 @@ class ChampionViewModel: ObservableObject {
             haptics.notificationOccurred(.success)
             
             playSoundEffect(sound: goldSounds.randomElement()!, type: "wav", volume: 0.3)
-            
-           
         } else {
             print("WRONG ANSWER")
             
@@ -87,19 +90,15 @@ class ChampionViewModel: ObservableObject {
             }
             
             playSoundEffect(sound: loseSounds.randomElement()!, type: "wav", volume: 0.3)
-            
         }
         
-        
         self.isAnimating = true
-        
     }
     
     func generateCurrentChamp() {
         self.currentChamp = champions.randomElement()!
         
         print("\n[GET CURRENT CHAMP]: \(self.currentChamp.name)")
-        
     }
     
     
@@ -130,13 +129,13 @@ class ChampionViewModel: ObservableObject {
         
         self.generateCurrentChamp()
         self.generateCurrentChampSkin()
-
+        
         self.generateNextChamp()
         self.generateNextChampSkin()
-
+        
         self.generate4RandomChoices()
         self.score = 0
-      
+        
         self.hasNewTopPlayer = false
         
     }

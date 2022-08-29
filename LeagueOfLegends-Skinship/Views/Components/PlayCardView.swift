@@ -89,6 +89,6 @@ struct PlayCardView: View {
 struct PlayCardView_Previews: PreviewProvider {
     @StateObject static var champVM = ChampionViewModel()
     static var previews: some View {
-        GameView(champVM: self.champVM, appState: .constant("game"), gameMode: .constant("ranked"))
+        GameView(champVM: self.champVM, appState: .constant(.game), gameMode: .constant("ranked"))
     }
 }

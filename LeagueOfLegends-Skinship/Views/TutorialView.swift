@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TutorialView: View {
-    @Binding var appState: String
+    @Binding var appState: AppState
     
     var body: some View {
         ZStack {
@@ -90,7 +90,7 @@ struct TutorialView: View {
                 
                 Button {
                     withAnimation {
-                        self.appState = "home"
+                        self.appState = .home
                     }
                 } label: {
 //                    Text("Back to home")
@@ -149,8 +149,8 @@ struct TutorialView: View {
     }
 }
 
-struct TutorialView_Previews: PreviewProvider {
-    static var previews: some View {
-        TutorialView(appState: .constant("tutorial"))
-    }
-}
+//struct TutorialView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TutorialView(appState: )
+//    }
+//}

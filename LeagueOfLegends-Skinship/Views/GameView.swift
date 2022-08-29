@@ -13,9 +13,8 @@ struct GameView: View {
     
     @StateObject var champVM = ChampionViewModel()
     
-    @Binding var appState: String
+    @Binding var appState: AppState
     @Binding var gameMode: String
-    
     
     @State private var showInfoSheet = false
     @State private var showTopPlayerAlert = false
@@ -62,7 +61,7 @@ struct GameView: View {
                                 self.showConfirmExitRankedGameAlert = true
                             } else {
                                 withAnimation {
-                                    self.appState = "home"
+                                    self.appState = .home
                                 }
                             }
                         }) {
@@ -136,7 +135,7 @@ struct GameView: View {
                     .alert("You are in ranked game.\nDo you want to exit the game?", isPresented: $showConfirmExitRankedGameAlert) {
                         Button("Exit", role: .destructive) {
                             withAnimation {
-                                self.appState = "home"
+                                self.appState = .home
                             }
                         }
                         Button("Keep playing", role: .cancel) { }
