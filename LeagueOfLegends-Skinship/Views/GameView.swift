@@ -124,7 +124,7 @@ struct GameView: View {
                         }
                     }
                     .frame(width: 350)
-                    .offset(y: -10)
+                    .offset(y: -5)
                     .padding(.horizontal)
                     // reset game alert
                     .alert("Do you want to reset game?", isPresented: $showResetGameAlert) {
@@ -159,7 +159,7 @@ struct GameView: View {
                         
                         if gameMode == "ranked" {
                             Spacer()
-                                .frame(width: 75)
+                                .frame(width: 80)
                             
                             // High score
                             HStack {
@@ -178,7 +178,7 @@ struct GameView: View {
                             }
                             
                             // display current top player
-                            .alert("Current top player: \(self.champVM.topPlayer)", isPresented: $showTopPlayerAlert) {
+                            .alert(self.champVM.topPlayer == "" ? "Become the first top player!" : "Current top player:\n\(self.champVM.topPlayer)", isPresented: $showTopPlayerAlert) {
                                 Button("Nice", role: .cancel) { }
                             }
                         }
@@ -232,11 +232,12 @@ struct GameView: View {
                 } // VStack
                 .padding(.top, 10)
             } // VStack
-            .blur(radius: self.champVM.showGameViewRankedStopModal ? 5 : 0, opaque: false)
+            .blur(radius: self.champVM.showRankedModeResultModal ? 5 : 0, opaque: false)
             
             
             // MARK: - Pop Up
-            if self.champVM.showGameViewRankedStopModal {
+            if self.champVM.showRankedModeResultModal {
+                
                 ModalView(champVM: self.champVM)
             }
             

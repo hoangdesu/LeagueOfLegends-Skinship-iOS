@@ -23,6 +23,7 @@ class ChampionViewModel: ObservableObject {
     @Published var score: Int = 0
     @AppStorage("highScore") var highscore: Int = 0
     @AppStorage("topPlayer") var topPlayer = "Doroke"
+    @Published var hasNewTopPlayer = false
     
     @Published var backgroundMusic = "SR - Early Game"
     @Published var backgroundMusicVolume: Double = 0.69
@@ -32,7 +33,7 @@ class ChampionViewModel: ObservableObject {
     @Published var rotationDirection = 1.0 // 1.0: left to right, -1.0: right to left
     
     // modal states
-    @Published var showGameViewRankedStopModal = false
+    @Published var showRankedModeResultModal = false
     @Published var animatingRankedStopModal = false
     @Published var correctAnswer = ""
     
@@ -46,17 +47,24 @@ class ChampionViewModel: ObservableObject {
         if currentChamp.id == choice.id {
             print("CORRECT ANSWER")
             
+            
             self.score += 1
+            if self.score % 5 == 0 {
+                playAnnouncerSound(sound: winAnnoucers.randomElement()!, type: "mp3", volume: 0.7)
+            }
             
             // update new highscore
             if self.score > self.highscore {
                 self.highscore = self.score
 //                UserDefaults.standard.set(highscore, forKey: "highScore")
-//                highscore =
+                self.hasNewTopPlayer = true
             }
             
             self.rotationDirection = 1.0
             haptics.notificationOccurred(.success)
+            
+            playSoundEffect(sound: goldSounds.randomElement()!, type: "wav", volume: 0.3)
+            
            
         } else {
             print("WRONG ANSWER")
@@ -65,9 +73,12 @@ class ChampionViewModel: ObservableObject {
             self.rotationDirection = -1.0
             haptics.notificationOccurred(.error)
             
+            // stop the game in ranked mode
             if gameMode == "ranked" {
-                self.showGameViewRankedStopModal = true
+                self.showRankedModeResultModal = true
             }
+            
+            playSoundEffect(sound: loseSounds.randomElement()!, type: "wav", volume: 0.3)
             
         }
         
@@ -107,18 +118,19 @@ class ChampionViewModel: ObservableObject {
     }
     
     func resetGameState() {
+        self.isAnimating = true
+        
         self.generateCurrentChamp()
         self.generateCurrentChampSkin()
-        
+
         self.generateNextChamp()
         self.generateNextChampSkin()
-        
+
         self.generate4RandomChoices()
         self.score = 0
-//
-//        self.isAnimating = false
+      
+        self.hasNewTopPlayer = false
         
-//        playBackgroundMusic(music: "SR - Early Game")
     }
     
     func getRandomSkinFromCurrentChamp() -> String {

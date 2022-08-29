@@ -10,6 +10,8 @@ import SwiftUI
 struct ModalView: View {
     @ObservedObject var champVM: ChampionViewModel
     
+    @State var playerName: String = ""
+    
     var body: some View {
         
         ZStack {
@@ -19,22 +21,23 @@ struct ModalView: View {
             // Modal
             VStack(spacing: 0) {
                 // Title
-                Text("Game Over")
+                Text(self.champVM.hasNewTopPlayer ? "Victory!" : "Defeat")
                     .font(.system(.title, design: .rounded))
                     .fontWeight(.heavy)
                     .padding()
                     .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Color("ColorPink"))
+                    .background(self.champVM.hasNewTopPlayer ? Color(.systemPink) : Color(.systemGray))
                     .foregroundColor(Color.white)
                 
                 Spacer()
                 
                 VStack(alignment: .center
                        , spacing: 16) {
-                    //                    Image("gfx-seven-reel")
-                    //                        .resizable()
-                    //                        .scaledToFit()
-                    //                        .frame(maxHeight: 72)
+                    Image(self.champVM.hasNewTopPlayer ? "zedSticker" : "amumuSticker")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 100)
+                    
                     Text("Correct answer: \(self.champVM.correctAnswer)")
                         .font(.system(.body, design: .rounded))
                         .lineLimit(2)
@@ -42,32 +45,44 @@ struct ModalView: View {
                         .foregroundColor(Color.gray)
                         .layoutPriority(1)
                     
+                    if self.champVM.hasNewTopPlayer {
+                        TextField("Enter your username", text: self.$playerName)
+                            .multilineTextAlignment(.center)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 20)
+                            
+                    }
+                    
                     Button(action: {
-                        //                        self.showingModal = false
-                        //                        self.animatingModal = false
-                        //                        self.activateBet10()
-                        //                        self.coins = 100
+                        if self.champVM.hasNewTopPlayer {
+                            if playerName == "" {
+                                return
+                            }
+                            self.champVM.topPlayer = playerName
+                        }
+                        
                         withAnimation(Animation.easeOut(duration: 0.5)) {
                             self.champVM.animatingRankedStopModal = false
-                            self.champVM.showGameViewRankedStopModal = false
+                            self.champVM.showRankedModeResultModal = false
                         }
                         
                         self.champVM.resetGameState()
                         
                     }) {
-                        Text("New Game".uppercased())
+                        Text("Play again".uppercased())
                             .font(.system(.body, design: .rounded))
                             .fontWeight(.semibold)
-                            .accentColor(Color("ColorPink"))
+                            .accentColor(Color(.systemIndigo))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
                             .frame(minWidth: 128)
                             .background(
                                 Capsule()
-                                    .strokeBorder(lineWidth: 1.75)
-                                    .foregroundColor(Color("ColorPink"))
+                                    .strokeBorder(lineWidth: 2.0)
+                                    .foregroundColor(self.champVM.hasNewTopPlayer ? Color(.systemPink) : Color(.systemGray))
                             )
                     }
+                    .padding(.bottom, 10)
                 }
                 Spacer()
             }
@@ -80,9 +95,14 @@ struct ModalView: View {
             .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0))
             .onAppear(perform: {
                 self.champVM.animatingRankedStopModal = true
+                if self.champVM.hasNewTopPlayer {
+                    playSoundEffect(sound: "Victory", type: "mp3", volume: 1.0)
+                } else {
+                    playSoundEffect(sound: "Defeat", type: "mp3", volume: 1.0)
+                }
             })
             .onDisappear {
-                self.champVM.showGameViewRankedStopModal = false
+                self.champVM.showRankedModeResultModal = false
                 self.champVM.animatingRankedStopModal = false
             }
         }

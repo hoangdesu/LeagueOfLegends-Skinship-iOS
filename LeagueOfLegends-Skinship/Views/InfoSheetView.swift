@@ -56,14 +56,27 @@ struct InfoSheetView: View {
                     Section(header: Text("About this game")) {
                         FormRowView(firstItem: "App name", secondItem: "League of Legends: Skinship")
                         FormRowView(firstItem: "iOS version", secondItem: "15.5")
+                        FormRowView(firstItem: "macOS version", secondItem: "12.2")
+                        FormRowView(firstItem: "LoL version", secondItem: "12.16.1")
                         FormRowView(firstItem: "Developer", secondItem: "Hoang Nguyen")
-                        FormRowView(firstItem: "Website", secondItem: "hoangdesu.com")
                             .onTapGesture {
-                                if let url = URL(string: "https://www.hoangdesu.com") {
+                                if let url = URL(string: "https://www.facebook.com/Hoangdayo") {
                                     UIApplication.shared.open(url)
                                 }
                             }
-                        FormRowView(firstItem: "CopyRight", secondItem: "2022 all rigths reserved")
+                        FormRowView(firstItem: "Github repo", secondItem: "@hoangdesu")
+                            .onTapGesture {
+                                if let url = URL(string: "https://github.com/hoangdesu/LeagueOfLegends-Skinship-iOS") {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                        FormRowView(firstItem: "Website", secondItem: "hoangdesu.com")
+                            .onTapGesture {
+                                if let url = URL(string: "https://hoangdesu.com") {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                        FormRowView(firstItem: "Assets by", secondItem: "Riot Games")
                         FormRowView(firstItem: "Version", secondItem: "1.0.0")
                     }
                     

@@ -31,6 +31,7 @@ struct HomeView: View {
                         self.appState = "game"
                         self.gameMode = "normal"
                     }
+                    playSoundEffect(sound: "gamestart", type: "mp3", volume: 1.0)
                 } label: {
                     Image("playNormalBtn2")
                         .resizable()
@@ -42,10 +43,11 @@ struct HomeView: View {
                     .frame(height: 30)
                 
                 Button {
-                    withAnimation {
+                    withAnimation(.easeOut(duration: 1)) {
                         self.appState = "game"
                         self.gameMode = "ranked"
                     }
+                    playSoundEffect(sound: "gamestart", type: "mp3", volume: 1.0)
                 } label: {
                     Image("playRankedBtn2")
                         .resizable()

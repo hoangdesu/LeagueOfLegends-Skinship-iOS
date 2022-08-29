@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		29023BC928BC8D980042C502 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29023BC828BC8D980042C502 /* TutorialView.swift */; };
+		29070ABD28BCC66A00F80F12 /* Defeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ABB28BCC66A00F80F12 /* Defeat.mp3 */; };
+		29070ABE28BCC66A00F80F12 /* Victory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ABC28BCC66A00F80F12 /* Victory.mp3 */; };
+		29070AC028BCCAA500F80F12 /* gold1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070ABF28BCCAA500F80F12 /* gold1.wav */; };
+		29070AC528BCCB6A00F80F12 /* gold2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070AC128BCCB6900F80F12 /* gold2.wav */; };
+		29070AC628BCCB6A00F80F12 /* gold3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070AC228BCCB6900F80F12 /* gold3.wav */; };
+		29070AC728BCCB6A00F80F12 /* gold4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070AC328BCCB6900F80F12 /* gold4.wav */; };
+		29070AC828BCCB6A00F80F12 /* gold5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070AC428BCCB6A00F80F12 /* gold5.wav */; };
+		29070ACB28BCCC3400F80F12 /* danger.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070AC928BCCC3300F80F12 /* danger.wav */; };
+		29070ACC28BCCC3400F80F12 /* getback.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070ACA28BCCC3400F80F12 /* getback.wav */; };
+		29070ACE28BCCCB800F80F12 /* buy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070ACD28BCCCB800F80F12 /* buy.wav */; };
+		29070AD628BCD28700F80F12 /* gamestart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070AD528BCD28700F80F12 /* gamestart.mp3 */; };
+		29070AD828BCD3DA00F80F12 /* Rampage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070AD728BCD3DA00F80F12 /* Rampage.mp3 */; };
+		29070ADD28BCD3EA00F80F12 /* Dominating.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070AD928BCD3E900F80F12 /* Dominating.mp3 */; };
+		29070ADE28BCD3EA00F80F12 /* Legendary1_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ADA28BCD3E900F80F12 /* Legendary1_1.mp3 */; };
+		29070ADF28BCD3EA00F80F12 /* Godlike_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ADB28BCD3EA00F80F12 /* Godlike_1.mp3 */; };
+		29070AE028BCD3EA00F80F12 /* Killing Spree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ADC28BCD3EA00F80F12 /* Killing Spree.mp3 */; };
 		29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */; };
 		29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */; };
 		29639EFE28BC030600FDE2C0 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EFD28BC030600FDE2C0 /* ModalView.swift */; };
@@ -63,6 +79,22 @@
 
 /* Begin PBXFileReference section */
 		29023BC828BC8D980042C502 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		29070ABB28BCC66A00F80F12 /* Defeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Defeat.mp3; sourceTree = "<group>"; };
+		29070ABC28BCC66A00F80F12 /* Victory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Victory.mp3; sourceTree = "<group>"; };
+		29070ABF28BCCAA500F80F12 /* gold1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gold1.wav; sourceTree = "<group>"; };
+		29070AC128BCCB6900F80F12 /* gold2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gold2.wav; sourceTree = "<group>"; };
+		29070AC228BCCB6900F80F12 /* gold3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gold3.wav; sourceTree = "<group>"; };
+		29070AC328BCCB6900F80F12 /* gold4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gold4.wav; sourceTree = "<group>"; };
+		29070AC428BCCB6A00F80F12 /* gold5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gold5.wav; sourceTree = "<group>"; };
+		29070AC928BCCC3300F80F12 /* danger.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = danger.wav; sourceTree = "<group>"; };
+		29070ACA28BCCC3400F80F12 /* getback.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = getback.wav; sourceTree = "<group>"; };
+		29070ACD28BCCCB800F80F12 /* buy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buy.wav; sourceTree = "<group>"; };
+		29070AD528BCD28700F80F12 /* gamestart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamestart.mp3; sourceTree = "<group>"; };
+		29070AD728BCD3DA00F80F12 /* Rampage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rampage.mp3; sourceTree = "<group>"; };
+		29070AD928BCD3E900F80F12 /* Dominating.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dominating.mp3; sourceTree = "<group>"; };
+		29070ADA28BCD3E900F80F12 /* Legendary1_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Legendary1_1.mp3; sourceTree = "<group>"; };
+		29070ADB28BCD3EA00F80F12 /* Godlike_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Godlike_1.mp3; sourceTree = "<group>"; };
+		29070ADC28BCD3EA00F80F12 /* Killing Spree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Killing Spree.mp3"; sourceTree = "<group>"; };
 		29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingHomescreenVideoPlayerView.swift; sourceTree = "<group>"; };
 		29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LeagueOfLegends-Skinship.entitlements"; sourceTree = "<group>"; };
 		29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "homescreen-background.mp4"; sourceTree = "<group>"; };
@@ -128,6 +160,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29070AE128BCD3F300F80F12 /* Announcers */ = {
+			isa = PBXGroup;
+			children = (
+				29070AD728BCD3DA00F80F12 /* Rampage.mp3 */,
+				29070ABB28BCC66A00F80F12 /* Defeat.mp3 */,
+				29070ABC28BCC66A00F80F12 /* Victory.mp3 */,
+				29070AD928BCD3E900F80F12 /* Dominating.mp3 */,
+				29070ADB28BCD3EA00F80F12 /* Godlike_1.mp3 */,
+				29070ADC28BCD3EA00F80F12 /* Killing Spree.mp3 */,
+				29070ADA28BCD3E900F80F12 /* Legendary1_1.mp3 */,
+			);
+			path = Announcers;
+			sourceTree = "<group>";
+		};
+		29070AE228BCD3FB00F80F12 /* Golds */ = {
+			isa = PBXGroup;
+			children = (
+				29070ABF28BCCAA500F80F12 /* gold1.wav */,
+				29070AC128BCCB6900F80F12 /* gold2.wav */,
+				29070AC228BCCB6900F80F12 /* gold3.wav */,
+				29070AC328BCCB6900F80F12 /* gold4.wav */,
+				29070AC428BCCB6A00F80F12 /* gold5.wav */,
+				29070ACD28BCCCB800F80F12 /* buy.wav */,
+			);
+			path = Golds;
+			sourceTree = "<group>";
+		};
+		29070AE328BCD40C00F80F12 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				29E782A828B98EDB003CB537 /* PopStars.mp3 */,
+				29E782A628B98E43003CB537 /* Enemy.mp3 */,
+				29E782A328B98D50003CB537 /* SR - Mid Game.mp3 */,
+				29E782A228B98D4F003CB537 /* SR - Late Game.mp3 */,
+				29E782A028B97CBB003CB537 /* SR - Early Game.mp3 */,
+			);
+			path = Songs;
+			sourceTree = "<group>";
+		};
+		29070AE428BCD42F00F80F12 /* Lose */ = {
+			isa = PBXGroup;
+			children = (
+				29070AC928BCCC3300F80F12 /* danger.wav */,
+				29070ACA28BCCC3400F80F12 /* getback.wav */,
+			);
+			path = Lose;
+			sourceTree = "<group>";
+		};
 		296432EF28BA5E14009066BC /* Videos */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,11 +297,11 @@
 		29E7824E28B6E47B003CB537 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				29E782A828B98EDB003CB537 /* PopStars.mp3 */,
-				29E782A628B98E43003CB537 /* Enemy.mp3 */,
-				29E782A328B98D50003CB537 /* SR - Mid Game.mp3 */,
-				29E782A228B98D4F003CB537 /* SR - Late Game.mp3 */,
-				29E782A028B97CBB003CB537 /* SR - Early Game.mp3 */,
+				29070AE428BCD42F00F80F12 /* Lose */,
+				29070AE328BCD40C00F80F12 /* Songs */,
+				29070AE228BCD3FB00F80F12 /* Golds */,
+				29070AE128BCD3F300F80F12 /* Announcers */,
+				29070AD528BCD28700F80F12 /* gamestart.mp3 */,
 				29E7827428B786BC003CB537 /* mia.wav */,
 			);
 			path = Sounds;
@@ -391,16 +471,32 @@
 			files = (
 				29E7828728B7FAE1003CB537 /* champions.json in Resources */,
 				29E782A528B98D50003CB537 /* SR - Mid Game.mp3 in Resources */,
+				29070ADF28BCD3EA00F80F12 /* Godlike_1.mp3 in Resources */,
 				29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */,
 				29E7827528B786BC003CB537 /* mia.wav in Resources */,
 				29E782A928B98EDB003CB537 /* PopStars.mp3 in Resources */,
+				29070AC728BCCB6A00F80F12 /* gold4.wav in Resources */,
+				29070ACB28BCCC3400F80F12 /* danger.wav in Resources */,
+				29070AC528BCCB6A00F80F12 /* gold2.wav in Resources */,
 				29E7828528B7F869003CB537 /* buildDataScript.py in Resources */,
 				29E782A128B97CBB003CB537 /* SR - Early Game.mp3 in Resources */,
 				29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */,
+				29070AD628BCD28700F80F12 /* gamestart.mp3 in Resources */,
 				29639F0028BC7DEB00FDE2C0 /* splash-intro.mp4 in Resources */,
+				29070ABE28BCC66A00F80F12 /* Victory.mp3 in Resources */,
+				29070ADD28BCD3EA00F80F12 /* Dominating.mp3 in Resources */,
+				29070AC828BCCB6A00F80F12 /* gold5.wav in Resources */,
+				29070ADE28BCD3EA00F80F12 /* Legendary1_1.mp3 in Resources */,
 				29E782A428B98D50003CB537 /* SR - Late Game.mp3 in Resources */,
+				29070AC028BCCAA500F80F12 /* gold1.wav in Resources */,
 				29E782A728B98E43003CB537 /* Enemy.mp3 in Resources */,
+				29070ACE28BCCCB800F80F12 /* buy.wav in Resources */,
+				29070AD828BCD3DA00F80F12 /* Rampage.mp3 in Resources */,
+				29070ABD28BCC66A00F80F12 /* Defeat.mp3 in Resources */,
 				29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */,
+				29070ACC28BCCC3400F80F12 /* getback.wav in Resources */,
+				29070AE028BCD3EA00F80F12 /* Killing Spree.mp3 in Resources */,
+				29070AC628BCCB6A00F80F12 /* gold3.wav in Resources */,
 				29E7822828B6E099003CB537 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
