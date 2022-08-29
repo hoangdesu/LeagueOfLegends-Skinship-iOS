@@ -10,6 +10,7 @@
 		29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */; };
 		29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */; };
 		29639EFE28BC030600FDE2C0 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EFD28BC030600FDE2C0 /* ModalView.swift */; };
+		29639F0028BC7DEB00FDE2C0 /* splash-intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EFF28BC7DEB00FDE2C0 /* splash-intro.mp4 */; };
 		296432EE28BA3007009066BC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296432ED28BA3007009066BC /* SplashScreenView.swift */; };
 		29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */; };
 		29E7822828B6E099003CB537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E7822728B6E099003CB537 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LeagueOfLegends-Skinship.entitlements"; sourceTree = "<group>"; };
 		29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "homescreen-background.mp4"; sourceTree = "<group>"; };
 		29639EFD28BC030600FDE2C0 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		29639EFF28BC7DEB00FDE2C0 /* splash-intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "splash-intro.mp4"; sourceTree = "<group>"; };
 		296432ED28BA3007009066BC /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		29E7822028B6E096003CB537 /* LoL Skinship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoL Skinship.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E7822328B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueOfLegends_SkinshipApp.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		296432EF28BA5E14009066BC /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				29639EFF28BC7DEB00FDE2C0 /* splash-intro.mp4 */,
 				29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */,
 			);
 			path = Videos;
@@ -391,6 +394,7 @@
 				29E7828528B7F869003CB537 /* buildDataScript.py in Resources */,
 				29E782A128B97CBB003CB537 /* SR - Early Game.mp3 in Resources */,
 				29E7822B28B6E099003CB537 /* Preview Assets.xcassets in Resources */,
+				29639F0028BC7DEB00FDE2C0 /* splash-intro.mp4 in Resources */,
 				29E782A428B98D50003CB537 /* SR - Late Game.mp3 in Resources */,
 				29E782A728B98E43003CB537 /* Enemy.mp3 in Resources */,
 				29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */,
