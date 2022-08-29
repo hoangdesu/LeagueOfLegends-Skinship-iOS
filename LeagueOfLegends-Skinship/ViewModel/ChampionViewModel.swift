@@ -48,7 +48,6 @@ class ChampionViewModel: ObservableObject {
     @Published var animatingRankedStopModal = false
     @Published var correctAnswer = ""
     
-    
     init() {
         self.resetGameState()
     }
@@ -58,19 +57,24 @@ class ChampionViewModel: ObservableObject {
             print("CORRECT ANSWER")
             
             self.score += 1
+            
+            // play a random annoucer sound at 5 correct answers
             if self.score % 5 == 0 {
                 playAnnouncerSound(sound: winAnnoucers.randomElement()!, type: "mp3", volume: 0.7)
             }
             
-            // update new highscore
-            if self.score > self.highscore {
-                self.highscore = self.score
-                self.hasNewTopPlayer = true
-            }
-            
-            if !self.playNewHighScoreOnce && self.hasNewTopPlayer {
-                playSound2Effect(sound: "newhighscore", type: "wav", volume: 0.7)
-                self.playNewHighScoreOnce = true
+            // update new highscore, only update in ranked mode
+            if gameMode == "ranked" {
+                if self.score > self.highscore {
+                    self.highscore = self.score
+                    self.hasNewTopPlayer = true
+                }
+                
+                // play new high score sound once
+                if !self.playNewHighScoreOnce && self.hasNewTopPlayer {
+                    playSound2Effect(sound: "newhighscore", type: "wav", volume: 0.7)
+                    self.playNewHighScoreOnce = true
+                }
             }
             
             self.rotationDirection = 1.0

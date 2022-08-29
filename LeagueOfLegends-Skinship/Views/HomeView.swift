@@ -5,11 +5,20 @@
 //  Created by ドロケ on 27/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ */
+
 import SwiftUI
 
 struct HomeView: View {
     
-    //    app states
     @Binding var appState: AppState
     @Binding var gameMode: String
     
@@ -24,7 +33,6 @@ struct HomeView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300)
                 Spacer()
-                
                 
                 Button {
                     withAnimation {
@@ -63,35 +71,16 @@ struct HomeView: View {
                         self.appState = .tutorial
                     }
                     
-                    
                 } label: {
                     Image("howToPlayBtn")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200)
-                    
-                    
                 }
             }
             .padding()
             .padding(.top, 50)
             .padding(.bottom, 20)
-//            .overlay(
-//                Image(systemName: !self.isMuted ? "speaker.slash" : "speaker")
-//                    .font(.system(size: 20, weight: .regular, design: .rounded))
-//                    .onTapGesture {
-//                        self.isMuted.toggle()
-//                    }
-//            )
-            
         }
-        
-            
     }
 }
-
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView(appState: .constant("home"), gameMode: .constant("normal"))
-//    }
-//}
