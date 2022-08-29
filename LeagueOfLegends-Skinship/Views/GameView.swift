@@ -18,6 +18,8 @@ struct GameView: View {
     
     @State private var showResetHighscoreAlert = false
     @State private var showInfoSheet = false
+    @State private var showTopPlayerAlert = false
+    
     
     
     // MARK: - FUNCTIONS
@@ -94,9 +96,6 @@ struct GameView: View {
                                 Text("\(self.champVM.highscore)")
                                     .scoreNumberStyle()
                                     .modifier(ScoreNumberModifier())
-                                    .onAppear {
-                                        //                                    self.champVM.highscore = UserDefaults.standard.integer(forKey: "highScore")
-                                    }
                                 
                                 
                                 Text("High\nScore".uppercased())
@@ -105,8 +104,8 @@ struct GameView: View {
                             }
                             .modifier(ScoreContainerModifier())
                             .onTapGesture {
-                                //                                    self.champVM.highscore = 0
-                                self.showResetHighscoreAlert = true
+                                self.showTopPlayerAlert = true
+                                
                             }
                             .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
                                 Button("Reset", role: .destructive) {
@@ -114,6 +113,13 @@ struct GameView: View {
                                 }
                             }, message: {
                                 Text("Do you want to reset high score?")
+                            })
+                            .alert("Top player", isPresented: $showTopPlayerAlert, actions: {
+                                Button("Reset", role: .destructive) {
+//                                    self.champVM.highscore = 0
+                                }
+                            }, message: {
+                                Text("Current top player: \(self.champVM.topPlayer)")
                             })
                         }
                     }}

@@ -22,6 +22,7 @@ class ChampionViewModel: ObservableObject {
     @Published var choices: [Champion] = []
     @Published var score: Int = 0
     @AppStorage("highScore") var highscore: Int = 0
+    @AppStorage("topPlayer") var topPlayer = "Doroke"
     
     
     @Published var backgroundMusic = "SR - Early Game"
