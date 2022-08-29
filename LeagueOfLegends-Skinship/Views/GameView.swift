@@ -47,9 +47,6 @@ struct GameView: View {
             
             
             VStack {
-                //                                Color(.red)
-                //                Text("Score: \(self.champVM.score)")
-                
                 
                 VStack {
                     
@@ -257,7 +254,7 @@ struct GameView: View {
             backgroundMusicPlayer?.stop()
         }
         .sheet(isPresented: $showInfoSheet) {
-            InfoSheetView(champVM: self.champVM)
+            InfoSheetView(champVM: self.champVM, gameMode: self.$gameMode)
         }
         
     }

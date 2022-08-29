@@ -5,11 +5,21 @@
 //  Created by ドロケ on 29/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ Acknowledgement: https://github.com/zydeico/SlotMachine
+ */
+
 import SwiftUI
 
 struct ModalView: View {
     @ObservedObject var champVM: ChampionViewModel
-    
     @State var playerName: String = ""
     
     var body: some View {
@@ -50,7 +60,6 @@ struct ModalView: View {
                             .multilineTextAlignment(.center)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.horizontal, 20)
-                            
                     }
                     
                     Button(action: {
@@ -67,7 +76,6 @@ struct ModalView: View {
                         }
                         
                         self.champVM.resetGameState()
-                        
                     }) {
                         Text("Play again".uppercased())
                             .font(.system(.body, design: .rounded))
@@ -108,9 +116,3 @@ struct ModalView: View {
         }
     }
 }
-
-//struct ModalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ModalView(champVM: <#T##ChampionViewModel#>)
-//    }
-//}

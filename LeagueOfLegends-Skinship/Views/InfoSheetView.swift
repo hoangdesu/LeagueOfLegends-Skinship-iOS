@@ -13,19 +13,19 @@ struct InfoSheetView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var champVM: ChampionViewModel
+    @Binding var gameMode: String
     
-    let songs = ["SR - Early Game", "SR - Mid Game", "SR - Late Game", "Enemy", "PopStars"]
     @State var selectedSong = "SR - Early Game"
+    let songs = ["SR - Early Game", "SR - Mid Game", "SR - Late Game", "Enemy", "PopStars"]
     
     @State private var showResetHighscoreAlert = false
     @State private var showHighscoreHasBeenResetAlert = false
     
-    
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             CoverView()
+            
             NavigationView {
-                
                 Form {
                     Section(header: Text("Settings")) {
                         Text("Background music volume: \(Int(self.champVM.backgroundMusicVolume / 1.0 * 100))")
@@ -44,21 +44,30 @@ struct InfoSheetView: View {
                             Text("Change music")
                         })
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                        
-                        Button(action: {
-                            self.showResetHighscoreAlert = true
-                        }, label: {
-                            Text("Reset high score")
-                                .foregroundColor(.red)
-                        })
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                     }
+                    
+                    Section(header: Text("Top ranked player")) {
+                        FormRowView(firstItem: "Username", secondItem: "\(self.champVM.topPlayer)")
+                        FormRowView(firstItem: "Current highscore", secondItem: "\(self.champVM.highscore)")
+                        
+                        // only allow resetting high score in ranked game
+                        if self.gameMode == "ranked" {
+                            Button(action: {
+                                self.showResetHighscoreAlert = true
+                            }, label: {
+                                Text("Reset high score")
+                                    .foregroundColor(.red)
+                            })
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        }
+                    }
+                    
                     Section(header: Text("About this game")) {
                         FormRowView(firstItem: "App name", secondItem: "League of Legends: Skinship")
                         FormRowView(firstItem: "iOS version", secondItem: "15.5")
                         FormRowView(firstItem: "macOS version", secondItem: "12.2")
                         FormRowView(firstItem: "LoL version", secondItem: "12.16.1")
-                        FormRowView(firstItem: "Developer", secondItem: "Hoang Nguyen")
+                        FormRowView(firstItem: "Developed by", secondItem: "Hoang Nguyen")
                             .onTapGesture {
                                 if let url = URL(string: "https://www.facebook.com/Hoangdayo") {
                                     UIApplication.shared.open(url)
@@ -79,7 +88,6 @@ struct InfoSheetView: View {
                         FormRowView(firstItem: "Assets by", secondItem: "Riot Games")
                         FormRowView(firstItem: "Version", secondItem: "1.0.0")
                     }
-                    
                 }
                 .font(.system(.body, design: .rounded))
             }}
@@ -97,11 +105,6 @@ struct InfoSheetView: View {
                 .padding(.trailing, 20)
                 .accentColor(Color.secondary), alignment: .topTrailing
         )
-        .onAppear(perform: {
-            //            playSound(sound: "background-music", type: "mp3")
-            //            playSound(sound: "summonersRift", type: "mp3", volume: self.champVM.backgroundMusicVolume)
-        })
-        //
         .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
             Button("Reset", role: .destructive) {
                 self.champVM.highscore = 0

@@ -5,15 +5,16 @@
 //  Created by ドロケ on 28/08/2022.
 //
 
-//import SwiftUI
-//
-//struct PlayerView: View {
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//    }
-//}
-
-// credit: https://schwiftyui.com/swiftui/playing-videos-on-a-loop-in-swiftui/
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ Acknowledgement: https://schwiftyui.com/swiftui/playing-videos-on-a-loop-in-swiftui/
+ */
 
 import SwiftUI
 import AVKit
@@ -27,7 +28,6 @@ struct LoopingHomescreenVideoPlayerView: UIViewRepresentable {
         return LoopingHomescreenVideoPlayerUIView(frame: .zero)
     }
 }
-
 
 class LoopingHomescreenVideoPlayerUIView: UIView {
     private let playerLayer = AVPlayerLayer()
@@ -63,10 +63,3 @@ class LoopingHomescreenVideoPlayerUIView: UIView {
         playerLayer.frame = bounds
     }
 }
-
-//struct PlayerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlayerView()
-//    }
-//}
-

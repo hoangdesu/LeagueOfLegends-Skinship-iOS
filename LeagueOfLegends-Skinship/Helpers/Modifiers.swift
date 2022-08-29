@@ -5,6 +5,17 @@
 //  Created by ドロケ on 25/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ Acknowledgement: https://github.com/zydeico/SlotMachine
+ */
+
 import SwiftUI
 
 struct ShadowModifier: ViewModifier {
@@ -39,7 +50,7 @@ struct ScoreContainerModifier: ViewModifier {
             .background(
                 Capsule()
                     .foregroundColor(Color("ColorTransparentBlack"))
-        )
+            )
     }
 }
 
@@ -68,13 +79,13 @@ struct BetCapsuleModifier: ViewModifier {
             .background(
                 Capsule()
                     .fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .top, endPoint: .bottom))
-        )
+            )
             .padding(3)
             .background(
                 Capsule()
                     .fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .bottom, endPoint: .top))
                     .modifier(ShadowModifier())
-        )
+            )
     }
 }
 
