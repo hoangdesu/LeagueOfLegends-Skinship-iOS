@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlayCardView: View {
     @ObservedObject var champVM: ChampionViewModel
+    @Binding var gameMode: String
     
     @State private var rotation: Double = 0
     @State private var showAnswer: Bool = false
@@ -19,7 +20,7 @@ struct PlayCardView: View {
             ZStack {
                 Image(self.champVM.currentChampSkin)
                     .scaleEffect(0.7)
-                    .shadow(color: .green, radius: 10, x: 2, y: 2)
+                    .shadow(color: self.gameMode == "ranked" ? .red : .purple, radius: 10, x: 2, y: 2)
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                 
             }
@@ -28,12 +29,6 @@ struct PlayCardView: View {
             .onLongPressGesture {
                 showAnswer.toggle()
             }
-            //        .onTapGesture {
-            //            withAnimation(Animation.easeOut(duration: 0.5)) {
-            //                //                self.animating.toggle()
-            ////                self.champVM.isAnimating.toggle()
-            //            }
-            //        }
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { _ in
                     //                if self.animating {

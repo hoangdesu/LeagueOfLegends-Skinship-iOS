@@ -33,7 +33,7 @@ struct GameView: View {
     var body: some View {
         
         ZStack {
-            Image("background")
+            Image(self.gameMode == "ranked" ? "summonersRift" : "twistedTreeLine")
             
                 .resizable()
             
@@ -105,7 +105,6 @@ struct GameView: View {
                             .modifier(ScoreContainerModifier())
                             .onTapGesture {
                                 self.showTopPlayerAlert = true
-                                
                             }
                             .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
                                 Button("Reset", role: .destructive) {
@@ -123,12 +122,10 @@ struct GameView: View {
                             })
                         }
                     }}
-                //                .offset(y: -20)
-                //                .padding(.bottom, -20)
                 
                 
                 // MARK: - Play Card View
-                PlayCardView(champVM: self.champVM)
+                PlayCardView(champVM: self.champVM, gameMode: self.$gameMode)
                 
                 
                 // MARK: - Selections
