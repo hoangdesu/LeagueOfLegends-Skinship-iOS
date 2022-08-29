@@ -49,7 +49,6 @@
 		29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */; };
 		29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */ = {isa = PBXBuildFile; fileRef = 29E7829228B9372E003CB537 /* TODO-Checklist.md */; };
 		29E7829728B93E69003CB537 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829628B93E67003CB537 /* Extensions.swift */; };
-		29E7829928B9566E003CB537 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829828B9566E003CB537 /* Player.swift */; };
 		29E7829B28B96405003CB537 /* InfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829A28B96405003CB537 /* InfoSheetView.swift */; };
 		29E7829D28B964D5003CB537 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829C28B964D5003CB537 /* VolumeSlider.swift */; };
 		29E7829F28B977A7003CB537 /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7829E28B977A7003CB537 /* CoverView.swift */; };
@@ -125,7 +124,6 @@
 		29E7828D28B8EFD7003CB537 /* ChampionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionViewModel.swift; sourceTree = "<group>"; };
 		29E7829228B9372E003CB537 /* TODO-Checklist.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "TODO-Checklist.md"; sourceTree = SOURCE_ROOT; };
 		29E7829628B93E67003CB537 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		29E7829828B9566E003CB537 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		29E7829A28B96405003CB537 /* InfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetView.swift; sourceTree = "<group>"; };
 		29E7829C28B964D5003CB537 /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
 		29E7829E28B977A7003CB537 /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 				29E7828628B7FAE1003CB537 /* champions.json */,
 				29E7827C28B7A9C0003CB537 /* Champion.swift */,
 				29E7827F28B7AA67003CB537 /* ModelData.swift */,
-				29E7829828B9566E003CB537 /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -537,7 +534,6 @@
 				29E7827D28B7A9C0003CB537 /* Champion.swift in Sources */,
 				29E7828E28B8EFD7003CB537 /* ChampionViewModel.swift in Sources */,
 				29E7828028B7AA67003CB537 /* ModelData.swift in Sources */,
-				29E7829928B9566E003CB537 /* Player.swift in Sources */,
 				29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */,
 				29023BC928BC8D980042C502 /* TutorialView.swift in Sources */,
 				29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */,
