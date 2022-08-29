@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29023BC928BC8D980042C502 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29023BC828BC8D980042C502 /* TutorialView.swift */; };
 		29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */; };
 		29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */; };
 		29639EFE28BC030600FDE2C0 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EFD28BC030600FDE2C0 /* ModalView.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29023BC828BC8D980042C502 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingHomescreenVideoPlayerView.swift; sourceTree = "<group>"; };
 		29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LeagueOfLegends-Skinship.entitlements"; sourceTree = "<group>"; };
 		29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "homescreen-background.mp4"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				29E7829A28B96405003CB537 /* InfoSheetView.swift */,
 				29E782AA28B99400003CB537 /* HomeView.swift */,
 				296432ED28BA3007009066BC /* SplashScreenView.swift */,
+				29023BC828BC8D980042C502 /* TutorialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				29E7828028B7AA67003CB537 /* ModelData.swift in Sources */,
 				29E7829928B9566E003CB537 /* Player.swift in Sources */,
 				29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */,
+				29023BC928BC8D980042C502 /* TutorialView.swift in Sources */,
 				29E7822428B6E096003CB537 /* LeagueOfLegends_SkinshipApp.swift in Sources */,
 				29639EFE28BC030600FDE2C0 /* ModalView.swift in Sources */,
 				29E7827728B78700003CB537 /* AudioPlayer.swift in Sources */,

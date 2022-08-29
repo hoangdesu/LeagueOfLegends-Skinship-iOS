@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-//    app states
+    //    app states
     @Binding var appState: String
     @Binding var gameMode: String
     
@@ -19,24 +19,61 @@ struct HomeView: View {
                 .ignoresSafeArea()
             
             VStack {
-            Button {
-                withAnimation {
-                    self.appState = "game"
-                    self.gameMode = "normal"
+                Image("LeagueOfLegendsLogo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300)
+                Spacer()
+                
+                
+                Button {
+                    withAnimation {
+                        self.appState = "game"
+                        self.gameMode = "normal"
+                    }
+                } label: {
+                    Image("playNormalBtn2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200)
                 }
-            } label: {
-                Text("NORMAL")
-            }
-            
-            Button {
-                withAnimation {
-                    self.appState = "game"
-                    self.gameMode = "ranked"
+                
+                Spacer()
+                    .frame(height: 30)
+                
+                Button {
+                    withAnimation {
+                        self.appState = "game"
+                        self.gameMode = "ranked"
+                    }
+                } label: {
+                    Image("playRankedBtn2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200)
                 }
-            } label: {
-                Text("RANKED")
+                
+                Spacer()
+                    .frame(height: 30)
+                
+                Button {
+                    withAnimation {
+                        self.appState = "tutorial"
+                    }
+                    
+                    
+                } label: {
+                    Image("howToPlayBtn")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200)
+                    
+                    
+                }
             }
-            }
+            .padding()
+            .padding(.top, 50)
+            .padding(.bottom, 20)
             
         }
     }
@@ -44,6 +81,6 @@ struct HomeView: View {
 
 //struct HomeView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        HomeView(showingGame: )
+//        HomeView(appState: .constant("home"), gameMode: .constant("normal"))
 //    }
 //}

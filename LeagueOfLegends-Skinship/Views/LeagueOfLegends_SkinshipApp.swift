@@ -38,8 +38,16 @@ struct LeagueOfLegends_SkinshipApp: App {
                 HomeView(appState: $appState, gameMode: $gameMode)
             } else if self.appState == "game" {
                 GameView(appState: $appState, gameMode: $gameMode)
-            }
+            } else if self.appState == "tutorial" {
+//                NavigationView {
+//                NavigationLink(
+//                    destination:
+//                )
+//
+//                }}
+            TutorialView(appState: $appState)
         
         }
     }
+}
 }
