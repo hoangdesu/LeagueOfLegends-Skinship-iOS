@@ -20,6 +20,8 @@ import SwiftUI
 import AVKit
 import AVFoundation
 
+let homeBackgroundPlayer = AVQueuePlayer()
+
 struct LoopingHomescreenVideoPlayerView: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LoopingHomescreenVideoPlayerView>) {
     }
@@ -46,16 +48,16 @@ class LoopingHomescreenVideoPlayerUIView: UIView {
         let item = AVPlayerItem(asset: asset)
         
         // Setup the player
-        let player = AVQueuePlayer()
-        playerLayer.player = player
+        
+        playerLayer.player = homeBackgroundPlayer
         playerLayer.videoGravity = .resizeAspectFill
         layer.addSublayer(playerLayer)
          
         // Create a new player looper with the queue player and template item
-        playerLooper = AVPlayerLooper(player: player, templateItem: item)
+        playerLooper = AVPlayerLooper(player: homeBackgroundPlayer, templateItem: item)
 
         // Start the movie
-        player.play()
+        homeBackgroundPlayer.play()
     }
 
     override func layoutSubviews() {

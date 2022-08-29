@@ -82,5 +82,8 @@ struct HomeView: View {
             .padding(.top, 50)
             .padding(.bottom, 20)
         }
+        .onDisappear {
+            homeBackgroundPlayer.pause()
+        }
     }
 }
