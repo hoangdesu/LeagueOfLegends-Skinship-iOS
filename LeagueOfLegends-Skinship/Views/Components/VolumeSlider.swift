@@ -5,19 +5,19 @@
 //  Created by ドロケ on 27/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ */
+
 import SwiftUI
 import MediaPlayer
 import UIKit
-
-//struct VolumeSlider: UIViewRepresentable {
-//
-//
-//   func makeUIView(context: Context) -> MPVolumeView {
-//      MPVolumeView(frame: .zero)
-//   }
-//
-//   func updateUIView(_ view: MPVolumeView, context: Context) {}
-//}
 
 struct VolumeSliderWithIdicators: View {
     
@@ -29,11 +29,9 @@ struct VolumeSliderWithIdicators: View {
     
     var body: some View {
         
-        
         Text("Current volume \(self.volume)")
         
         Slider(value: $volume, in: range, step: step) {
-            
         } minimumValueLabel: {
             Text("\(range.lowerBound)")
         } maximumValueLabel: {
@@ -41,10 +39,6 @@ struct VolumeSliderWithIdicators: View {
         } onEditingChanged: { hasChanged in
             self.hasChanged = hasChanged
         }
-        //
-        //        }
-        
-        //        Slider(value: $volume, in: range, step: step, label: <#T##() -> _#>, minimumValueLabel: <#T##() -> _#>, maximumValueLabel: <#T##() -> _#>, onEditingChanged: <#T##(Bool) -> Void#>)
     }
 }
 
@@ -61,11 +55,9 @@ struct VolumeSlider: View {
     var body: some View {
         
         Slider(value: $champVM.backgroundMusicVolume, in: range, step: step) {
-            
         } onEditingChanged: { hasChanged in
             self.hasChanged = hasChanged
             backgroundMusicPlayer?.setVolume(Float(self.champVM.backgroundMusicVolume), fadeDuration: 0)
         }
-
     }
 }

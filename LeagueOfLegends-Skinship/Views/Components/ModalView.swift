@@ -5,11 +5,22 @@
 //  Created by ドロケ on 29/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ Acknowledgement: https://github.com/zydeico/SlotMachine
+ */
+
 import SwiftUI
 
 struct ModalView: View {
-    @ObservedObject var champVM: ChampionViewModel
     
+    @ObservedObject var champVM: ChampionViewModel
     @State var playerName: String = ""
     
     var body: some View {
@@ -50,7 +61,6 @@ struct ModalView: View {
                             .multilineTextAlignment(.center)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.horizontal, 20)
-                            
                     }
                     
                     Button(action: {
@@ -65,9 +75,7 @@ struct ModalView: View {
                             self.champVM.animatingRankedStopModal = false
                             self.champVM.showRankedModeResultModal = false
                         }
-                        
                         self.champVM.resetGameState()
-                        
                     }) {
                         Text("Play again".uppercased())
                             .font(.system(.body, design: .rounded))
@@ -93,14 +101,14 @@ struct ModalView: View {
             .opacity(self.champVM.animatingRankedStopModal ? 1 : 0)
             .offset(y: self.champVM.animatingRankedStopModal ? 0 : -100)
             .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0), value: self.champVM.animatingRankedStopModal)
-            .onAppear(perform: {
+            .onAppear {
                 self.champVM.animatingRankedStopModal = true
                 if self.champVM.hasNewTopPlayer {
                     playSoundEffect(sound: "Victory", type: "mp3", volume: 1.0)
                 } else {
                     playSoundEffect(sound: "Defeat", type: "mp3", volume: 1.0)
                 }
-            })
+            }
             .onDisappear {
                 self.champVM.showRankedModeResultModal = false
                 self.champVM.animatingRankedStopModal = false
@@ -108,9 +116,3 @@ struct ModalView: View {
         }
     }
 }
-
-//struct ModalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ModalView(champVM: <#T##ChampionViewModel#>)
-//    }
-//}

@@ -80,72 +80,23 @@ struct TutorialView: View {
                         .bold()
                     
                     Text("The game is packed with iconic songs from League. Feel free to choose the song you would like to listen to while playing the game under the Infofmation section.")
-                    
-                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
-                
-                
                 
                 Button {
                     withAnimation {
                         self.appState = "home"
                     }
                 } label: {
-//                    Text("Back to home")
-//                        .padding(.vertical, 10)
-//                        .padding(.horizontal, 20)
-//                        .frame(minWidth: 150)
-//                        .foregroundColor(.white)
-//                        .background(
-//                            Capsule()
-//                                .foregroundColor(Color(.systemIndigo))
-//                    )
                     Image("backBtn")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 200)
+                        .frame(width: 150)
                 }
                 .padding(20)
-                
             }
-            //        ScrollView {
-            //            VStack(spacing: 20) {
-            //                ForEach(champions) {
-            //
-            //                    Image("\($0.defaultSkin)")
-            //                        .resizable()
-            //                        .aspectRatio(contentMode: .fit)
-            //                        .frame(width: 100)
-            //                    Text("\($0.name)")
-            //
-            //s[0].skins) {
-            //                                //                    Text("Item \($0)")
-            //                                //                        .foregroundColor(.white)
-            //                                //                        .font(.largeTitle)
-            //                                //                        .frame(width: 200, height: 200)
-            //                                //                        .background(.red)
-            //                                Image("\($0.loading)")
-            //                                    .resizable()
-            //                                    .aspectRatio(
-            //                    ScrollView(.horizontal, showsIndicators: true) {
-            //                        HStack(spacing: 20) {
-            //                            ForEach(championcontentMode: .fit)
-            //                                    .frame(width: 100)
-            //                                Text("\($0.name)")
-            //                            }
-            //                        }
-            //                    }
-            //
-            //                }
-            //
-            //            }
-            //
-            //        }
         }
-//        .foregroundColor(.white)
-        
     }
 }
 

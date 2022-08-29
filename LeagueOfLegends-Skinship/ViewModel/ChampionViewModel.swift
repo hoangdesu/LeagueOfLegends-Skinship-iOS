@@ -5,6 +5,17 @@
 //  Created by ドロケ on 26/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ Acknowledgement: https://github.com/zydeico/SlotMachine
+ */
+
 import Foundation
 import SwiftUI
 
@@ -20,11 +31,14 @@ class ChampionViewModel: ObservableObject {
     @Published var nextChampSkin = ""
     
     @Published var choices: [Champion] = []
+    
     @Published var score: Int = 0
     @AppStorage("highScore") var highscore: Int = 0
     @AppStorage("topPlayer") var topPlayer = "Doroke"
     @Published var hasNewTopPlayer = false
+    @Published var playNewHighScoreOnce = false
     
+    // music states
     @Published var backgroundMusic = "SR - Early Game"
     @Published var backgroundMusicVolume: Double = 0.69
     
@@ -37,28 +51,21 @@ class ChampionViewModel: ObservableObject {
     @Published var animatingRankedStopModal = false
     @Published var correctAnswer = ""
     
-    @Published var playNewHighScoreOnce = false
-
-    
     init() {
         self.resetGameState()
     }
     
+    // MARK: - Heart of the program
     func gamePlayController(choice: Champion, gameMode: String) {
         
-        
+        // correct choice
         if currentChamp.id == choice.id {
-            print("CORRECT ANSWER")
-            
-            
-            self.score += 1
             if self.score % 5 == 0 {
                 playAnnouncerSound(sound: winAnnoucers.randomElement()!, type: "mp3", volume: 0.7)
             }
             
             // update new highscore
             if self.score > self.highscore {
-                
                 self.highscore = self.score
                 self.hasNewTopPlayer = true
             }
@@ -73,10 +80,8 @@ class ChampionViewModel: ObservableObject {
             
             playSoundEffect(sound: goldSounds.randomElement()!, type: "wav", volume: 0.3)
             
-           
+        // incorrect choice
         } else {
-            print("WRONG ANSWER")
-            
             self.score -= 1
             self.rotationDirection = -1.0
             haptics.notificationOccurred(.error)
@@ -87,19 +92,13 @@ class ChampionViewModel: ObservableObject {
             }
             
             playSoundEffect(sound: loseSounds.randomElement()!, type: "wav", volume: 0.3)
-            
         }
         
-        
         self.isAnimating = true
-        
     }
     
     func generateCurrentChamp() {
         self.currentChamp = champions.randomElement()!
-        
-        print("\n[GET CURRENT CHAMP]: \(self.currentChamp.name)")
-        
     }
     
     
@@ -117,12 +116,6 @@ class ChampionViewModel: ObservableObject {
         }
         
         self.choices = self.choices.shuffled()
-        
-        print("4 choices: ", terminator: "")
-        for choice in choices {
-            print("\(choice.name)", terminator: ", ")
-        }
-        print()
     }
     
     func resetGameState() {
@@ -130,15 +123,14 @@ class ChampionViewModel: ObservableObject {
         
         self.generateCurrentChamp()
         self.generateCurrentChampSkin()
-
+        
         self.generateNextChamp()
         self.generateNextChampSkin()
-
-        self.generate4RandomChoices()
-        self.score = 0
-      
-        self.hasNewTopPlayer = false
         
+        self.generate4RandomChoices()
+        
+        self.score = 0
+        self.hasNewTopPlayer = false
     }
     
     func getRandomSkinFromCurrentChamp() -> String {
@@ -152,10 +144,7 @@ class ChampionViewModel: ObservableObject {
         while self.nextChamp.id == self.currentChamp.id {
             self.nextChamp = champions.randomElement()!
         }
-        
-        print("NEXT CHAMP: \(self.nextChamp.name)")
     }
-    
     
     func hasDuplicatedChoices() -> Bool {
         var seen = [String: String]()
@@ -163,7 +152,6 @@ class ChampionViewModel: ObservableObject {
         for i in 0..<self.choices.count {
             let keyExists = seen[self.choices[i].id] != nil
             if keyExists {
-                print("-- has duplicated choices --")
                 return true
             } else {
                 let id = self.choices[i].id
@@ -173,24 +161,11 @@ class ChampionViewModel: ObservableObject {
         return false
     }
     
-    func swapNextChampWithCurrentChamp() {
-        self.currentChamp = self.nextChamp
-        generateNextChamp()
-        
-        while self.nextChamp.id == self.currentChamp.id {
-            generateNextChamp()
-        }
-    }
-    
     func generateCurrentChampSkin() {
         self.currentChampSkin = self.currentChamp.skins.randomElement()!.loading
-        print("Current champ skin: \(self.currentChampSkin)")
     }
     
     func generateNextChampSkin() {
         self.nextChampSkin = self.nextChamp.skins.randomElement()!.loading
-        print("Next champ skin: \(self.nextChampSkin)")
     }
-    
-    
 }

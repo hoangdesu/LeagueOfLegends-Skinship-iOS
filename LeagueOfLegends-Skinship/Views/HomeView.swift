@@ -62,15 +62,11 @@ struct HomeView: View {
                     withAnimation {
                         self.appState = "tutorial"
                     }
-                    
-                    
                 } label: {
                     Image("howToPlayBtn")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200)
-                    
-                    
                 }
             }
             .padding()

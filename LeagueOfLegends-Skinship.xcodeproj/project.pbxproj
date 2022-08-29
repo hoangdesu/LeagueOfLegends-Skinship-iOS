@@ -211,13 +211,6 @@
 			path = Lose;
 			sourceTree = "<group>";
 		};
-		29070AE728BCE69700F80F12 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		296432EF28BA5E14009066BC /* Videos */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +243,6 @@
 		29E7822228B6E096003CB537 /* LeagueOfLegends-Skinship */ = {
 			isa = PBXGroup;
 			children = (
-				29070AE728BCE69700F80F12 /* Fonts */,
 				29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */,
 				296432EF28BA5E14009066BC /* Videos */,
 				29E7829128B93713003CB537 /* Docs */,
