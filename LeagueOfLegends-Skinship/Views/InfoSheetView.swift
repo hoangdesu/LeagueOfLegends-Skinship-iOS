@@ -107,6 +107,7 @@ struct InfoSheetView: View {
                 self.champVM.highscore = 0
                 self.champVM.topPlayer = ""
                 self.showHighscoreHasBeenResetAlert = true
+                self.champVM.resetGameState()
             }
         }, message: {
             Text("Do you want to reset high score?")

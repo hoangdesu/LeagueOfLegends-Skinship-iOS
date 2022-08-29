@@ -24,6 +24,7 @@
 		29070ADE28BCD3EA00F80F12 /* Legendary1_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ADA28BCD3E900F80F12 /* Legendary1_1.mp3 */; };
 		29070ADF28BCD3EA00F80F12 /* Godlike_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ADB28BCD3EA00F80F12 /* Godlike_1.mp3 */; };
 		29070AE028BCD3EA00F80F12 /* Killing Spree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29070ADC28BCD3EA00F80F12 /* Killing Spree.mp3 */; };
+		29070AE628BCD8CA00F80F12 /* newhighscore.wav in Resources */ = {isa = PBXBuildFile; fileRef = 29070AE528BCD8CA00F80F12 /* newhighscore.wav */; };
 		29639EF728BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */; };
 		29639EFC28BBEE4400FDE2C0 /* homescreen-background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */; };
 		29639EFE28BC030600FDE2C0 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29639EFD28BC030600FDE2C0 /* ModalView.swift */; };
@@ -95,6 +96,7 @@
 		29070ADA28BCD3E900F80F12 /* Legendary1_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Legendary1_1.mp3; sourceTree = "<group>"; };
 		29070ADB28BCD3EA00F80F12 /* Godlike_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Godlike_1.mp3; sourceTree = "<group>"; };
 		29070ADC28BCD3EA00F80F12 /* Killing Spree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Killing Spree.mp3"; sourceTree = "<group>"; };
+		29070AE528BCD8CA00F80F12 /* newhighscore.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newhighscore.wav; sourceTree = "<group>"; };
 		29639EF628BBAD0900FDE2C0 /* LoopingHomescreenVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingHomescreenVideoPlayerView.swift; sourceTree = "<group>"; };
 		29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LeagueOfLegends-Skinship.entitlements"; sourceTree = "<group>"; };
 		29639EFB28BBEE4400FDE2C0 /* homescreen-background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "homescreen-background.mp4"; sourceTree = "<group>"; };
@@ -204,8 +206,16 @@
 			children = (
 				29070AC928BCCC3300F80F12 /* danger.wav */,
 				29070ACA28BCCC3400F80F12 /* getback.wav */,
+				29E7827428B786BC003CB537 /* mia.wav */,
 			);
 			path = Lose;
+			sourceTree = "<group>";
+		};
+		29070AE728BCE69700F80F12 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		296432EF28BA5E14009066BC /* Videos */ = {
@@ -240,6 +250,7 @@
 		29E7822228B6E096003CB537 /* LeagueOfLegends-Skinship */ = {
 			isa = PBXGroup;
 			children = (
+				29070AE728BCE69700F80F12 /* Fonts */,
 				29639EFA28BBE0A000FDE2C0 /* LeagueOfLegends-Skinship.entitlements */,
 				296432EF28BA5E14009066BC /* Videos */,
 				29E7829128B93713003CB537 /* Docs */,
@@ -302,7 +313,7 @@
 				29070AE228BCD3FB00F80F12 /* Golds */,
 				29070AE128BCD3F300F80F12 /* Announcers */,
 				29070AD528BCD28700F80F12 /* gamestart.mp3 */,
-				29E7827428B786BC003CB537 /* mia.wav */,
+				29070AE528BCD8CA00F80F12 /* newhighscore.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -475,6 +486,7 @@
 				29E7829328B9372E003CB537 /* TODO-Checklist.md in Resources */,
 				29E7827528B786BC003CB537 /* mia.wav in Resources */,
 				29E782A928B98EDB003CB537 /* PopStars.mp3 in Resources */,
+				29070AE628BCD8CA00F80F12 /* newhighscore.wav in Resources */,
 				29070AC728BCCB6A00F80F12 /* gold4.wav in Resources */,
 				29070ACB28BCCC3400F80F12 /* danger.wav in Resources */,
 				29070AC528BCCB6A00F80F12 /* gold2.wav in Resources */,

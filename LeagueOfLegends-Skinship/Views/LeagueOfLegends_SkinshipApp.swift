@@ -14,7 +14,7 @@ struct LeagueOfLegends_SkinshipApp: App {
     //        case
     //    }
     
-    @State private var appState = "splash"
+    @State private var appState = "tutorial"
     @State private var gameMode = "normal"
     
     

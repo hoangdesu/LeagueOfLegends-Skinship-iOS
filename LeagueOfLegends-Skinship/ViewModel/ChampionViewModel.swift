@@ -37,6 +37,9 @@ class ChampionViewModel: ObservableObject {
     @Published var animatingRankedStopModal = false
     @Published var correctAnswer = ""
     
+    @Published var playNewHighScoreOnce = false
+
+    
     init() {
         self.resetGameState()
     }
@@ -55,9 +58,14 @@ class ChampionViewModel: ObservableObject {
             
             // update new highscore
             if self.score > self.highscore {
+                
                 self.highscore = self.score
-//                UserDefaults.standard.set(highscore, forKey: "highScore")
                 self.hasNewTopPlayer = true
+            }
+            
+            if !self.playNewHighScoreOnce && self.hasNewTopPlayer {
+                playSound2Effect(sound: "newhighscore", type: "wav", volume: 0.7)
+                self.playNewHighScoreOnce = true
             }
             
             self.rotationDirection = 1.0

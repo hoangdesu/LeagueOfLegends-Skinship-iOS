@@ -45,7 +45,6 @@ struct GameView: View {
                 .blur(radius: 4)
                 .ignoresSafeArea()
                 .scaleEffect(1.2)
-                .offset(x: 50)
             
             
             VStack {

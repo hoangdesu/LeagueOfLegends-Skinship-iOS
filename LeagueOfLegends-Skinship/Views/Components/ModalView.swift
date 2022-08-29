@@ -92,7 +92,7 @@ struct ModalView: View {
             .shadow(color: Color("ColorTransparentBlack"), radius: 6, x: 0, y: 8)
             .opacity(self.champVM.animatingRankedStopModal ? 1 : 0)
             .offset(y: self.champVM.animatingRankedStopModal ? 0 : -100)
-            .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0))
+            .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0), value: self.champVM.animatingRankedStopModal)
             .onAppear(perform: {
                 self.champVM.animatingRankedStopModal = true
                 if self.champVM.hasNewTopPlayer {

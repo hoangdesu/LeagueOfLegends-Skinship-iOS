@@ -10,6 +10,7 @@ import AVFoundation
 var audioPlayer: AVAudioPlayer?
 var backgroundMusicPlayer: AVAudioPlayer?
 var announcerPlayer: AVAudioPlayer?
+var audio2Player: AVAudioPlayer?
 
 let goldSounds = ["gold1", "gold2", "gold3", "gold4", "gold5", "buy"]
 let loseSounds = ["mia", "danger", "getback"]
@@ -39,12 +40,25 @@ func playSoundEffect(sound: String, type: String, volume: Float) {
     }
 }
 
+
 func playAnnouncerSound(sound: String, type: String, volume: Float) {
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {
             announcerPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
             announcerPlayer?.setVolume(volume, fadeDuration: 0)
             announcerPlayer?.play()
+        } catch {
+            print("ERROR: Could not find and play the sound file!")
+        }
+    }
+}
+
+func playSound2Effect(sound: String, type: String, volume: Float) {
+    if let path = Bundle.main.path(forResource: sound, ofType: type) {
+        do {
+            audio2Player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            audio2Player?.setVolume(volume, fadeDuration: 0)
+            audio2Player?.play()
         } catch {
             print("ERROR: Could not find and play the sound file!")
         }
