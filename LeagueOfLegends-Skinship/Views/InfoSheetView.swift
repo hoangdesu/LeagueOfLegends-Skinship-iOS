@@ -17,6 +17,10 @@ struct InfoSheetView: View {
     let songs = ["SR - Early Game", "SR - Mid Game", "SR - Late Game", "Enemy", "PopStars"]
     @State var selectedSong = "SR - Early Game"
     
+    @State private var showResetHighscoreAlert = false
+    @State private var showHighscoreHasBeenResetAlert = false
+    
+    
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             CoverView()
@@ -40,6 +44,14 @@ struct InfoSheetView: View {
                             Text("Change music")
                         })
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        
+                        Button(action: {
+                            self.showResetHighscoreAlert = true
+                        }, label: {
+                            Text("Reset high score")
+                                .foregroundColor(.red)
+                        })
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                     }
                     Section(header: Text("About this game")) {
                         FormRowView(firstItem: "App name", secondItem: "League of Legends: Skinship")
@@ -54,6 +66,7 @@ struct InfoSheetView: View {
                         FormRowView(firstItem: "CopyRight", secondItem: "2022 all rigths reserved")
                         FormRowView(firstItem: "Version", secondItem: "1.0.0")
                     }
+                    
                 }
                 .font(.system(.body, design: .rounded))
             }}
@@ -75,6 +88,19 @@ struct InfoSheetView: View {
             //            playSound(sound: "background-music", type: "mp3")
             //            playSound(sound: "summonersRift", type: "mp3", volume: self.champVM.backgroundMusicVolume)
         })
+        //
+        .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
+            Button("Reset", role: .destructive) {
+                self.champVM.highscore = 0
+                self.champVM.topPlayer = ""
+                self.showHighscoreHasBeenResetAlert = true
+            }
+        }, message: {
+            Text("Do you want to reset high score?")
+        })
+        .alert("Highscore has been reset!", isPresented: $showHighscoreHasBeenResetAlert) {
+            Button("OK", role: .cancel) { }
+        }
     }
 }
 

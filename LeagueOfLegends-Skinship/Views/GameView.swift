@@ -16,11 +16,12 @@ struct GameView: View {
     @Binding var appState: String
     @Binding var gameMode: String
     
-    @State private var showResetHighscoreAlert = false
+    
     @State private var showInfoSheet = false
     @State private var showTopPlayerAlert = false
     @State private var showResetGameAlert = false
     @State private var isMuted = false
+    @State private var showConfirmExitRankedGameAlert = false
     
     
     
@@ -58,8 +59,12 @@ struct GameView: View {
                     HStack(alignment: .center) {
                         // home
                         Button(action: {
-                            withAnimation {
-                                self.appState = "home"
+                            if self.gameMode == "ranked" {
+                                self.showConfirmExitRankedGameAlert = true
+                            } else {
+                                withAnimation {
+                                    self.appState = "home"
+                                }
                             }
                         }) {
                             Image("LoLicon")
@@ -128,6 +133,15 @@ struct GameView: View {
                         }
                         Button("Cancel", role: .cancel) { }
                     }
+                    // show confirm exit ranked game alert - only available in ranked mode
+                    .alert("You are in ranked game.\nDo you want to exit the game?", isPresented: $showConfirmExitRankedGameAlert) {
+                        Button("Exit", role: .destructive) {
+                            withAnimation {
+                                self.appState = "home"
+                            }
+                        }
+                        Button("Keep playing", role: .cancel) { }
+                    }
                     
                     // MARK: - Scores
                     HStack {
@@ -162,26 +176,14 @@ struct GameView: View {
                             .onTapGesture {
                                 self.showTopPlayerAlert = true
                             }
-                            //
-                            .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
-                                Button("Reset", role: .destructive) {
-                                    self.champVM.highscore = 0
-                                }
-                            }, message: {
-                                Text("Do you want to reset high score?")
-                            })
-                            //
-                            .alert("Top player", isPresented: $showTopPlayerAlert, actions: {
-                                Button("Reset", role: .destructive) {
-                                    //                                    self.champVM.highscore = 0
-                                }
-                            }, message: {
-                                Text("Current top player: \(self.champVM.topPlayer)")
-                            })
                             
+                            // display current top player
+                            .alert("Current top player: \(self.champVM.topPlayer)", isPresented: $showTopPlayerAlert) {
+                                Button("Nice", role: .cancel) { }
+                            }
                         }
                     }}
-                
+
                 
                 // MARK: - Play Card View
                 PlayCardView(champVM: self.champVM, gameMode: self.$gameMode)
