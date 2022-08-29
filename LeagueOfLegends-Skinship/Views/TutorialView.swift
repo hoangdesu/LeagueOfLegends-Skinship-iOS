@@ -37,7 +37,7 @@ struct TutorialView: View {
                             .font(.title)
                             .bold()
                         
-                        Text("League of Legends: Skinship is based on the popular MOBA game \"League of Legends\" from Riot Games. Its gameplay is indeed very simple, a custom skin of a random will be spawn in the middle of the screen, among with 4 possible champions. Player will need to pick the correct champion of which the skin being displayed belongs to.")
+                        Text("League of Legends: Skinship is based on the popular MOBA game \"League of Legends\" from Riot Games. Its gameplay is indeed very simple, a custom skin of a random champion will be spawn in the middle of the screen, along with 4 possible choices. Player will need to pick the correct champion of which the skin being displayed belongs to.")
                         
                         Spacer()
                             .frame(height: 20)
