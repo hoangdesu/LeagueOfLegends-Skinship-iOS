@@ -19,6 +19,8 @@ struct GameView: View {
     @State private var showResetHighscoreAlert = false
     @State private var showInfoSheet = false
     @State private var showTopPlayerAlert = false
+    @State private var showResetGameAlert = false
+    @State private var isMuted = false
     
     
     
@@ -53,24 +55,78 @@ struct GameView: View {
                 VStack {
                     
                     // MARK: - Header
-                    HStack {
+                    HStack(alignment: .center) {
+                        // home
                         Button(action: {
                             withAnimation {
                                 self.appState = "home"
                             }
                         }) {
-                            Image(systemName: "arrow.2.circlepath.circle")
+                            Image("LoLicon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35)
+                                .padding(.leading, 10)
                         }
                         .modifier(ButtonModifier())
                         
-                        Button(action: {
-                            self.showInfoSheet = true
-                        }) {
-                            Image(systemName: "info.circle")
-                        }
-                        .modifier(ButtonModifier())
+                        Spacer()
                         
-                        Text("Game mode: \(self.gameMode)")
+                        HStack(spacing: 20) {
+                            
+                            // game mode
+                            //                            Text("\(self.gameMode.capitalized) mode")
+                            //                                .font(.headline)
+                            //                                .foregroundColor(self.gameMode == "ranked" ? .red : .yellow)
+                            //                                .shadow(color: .white, radius: 5, x: 0, y: 0)
+                            
+                            // reset game
+                            Button(action: {
+                                withAnimation {
+                                    self.showResetGameAlert = true
+                                }
+                            }) {
+                                Image(systemName: "arrow.2.circlepath.circle")
+                            }
+                            .modifier(ButtonModifier())
+                            
+                            
+                            Button(action: {
+                                self.showInfoSheet = true
+                            }) {
+                                Image(systemName: "info.circle")
+                            }
+                            .modifier(ButtonModifier())
+                            
+                            // mute background music
+                            Button(action: {
+                                // playing
+                                if self.champVM.backgroundMusicVolume > 0 {
+                                    self.champVM.backgroundMusicVolume = 0
+                                    
+                                    self.isMuted = true
+                                } else {
+                                    self.champVM.backgroundMusicVolume = 0.69
+                                    self.isMuted = false
+                                }
+                                backgroundMusicPlayer?.setVolume(Float(self.champVM.backgroundMusicVolume), fadeDuration: 0.0)
+                                
+                            }) {
+                                Image(systemName: self.isMuted ? "speaker.slash" : "speaker.2")
+                            }
+                            .modifier(ButtonModifier())
+                            
+                        }
+                    }
+                    .frame(width: 350)
+                    .offset(y: -10)
+                    .padding(.horizontal)
+                    // reset game alert
+                    .alert("Do you want to reset game?", isPresented: $showResetGameAlert) {
+                        Button("Reset", role: .destructive) {
+                            self.champVM.resetGameState()
+                        }
+                        Button("Cancel", role: .cancel) { }
                     }
                     
                     // MARK: - Scores
@@ -89,7 +145,7 @@ struct GameView: View {
                         
                         if gameMode == "ranked" {
                             Spacer()
-                                .frame(width: 80)
+                                .frame(width: 75)
                             
                             // High score
                             HStack {
@@ -106,6 +162,7 @@ struct GameView: View {
                             .onTapGesture {
                                 self.showTopPlayerAlert = true
                             }
+                            //
                             .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
                                 Button("Reset", role: .destructive) {
                                     self.champVM.highscore = 0
@@ -113,13 +170,15 @@ struct GameView: View {
                             }, message: {
                                 Text("Do you want to reset high score?")
                             })
+                            //
                             .alert("Top player", isPresented: $showTopPlayerAlert, actions: {
                                 Button("Reset", role: .destructive) {
-//                                    self.champVM.highscore = 0
+                                    //                                    self.champVM.highscore = 0
                                 }
                             }, message: {
                                 Text("Current top player: \(self.champVM.topPlayer)")
                             })
+                            
                         }
                     }}
                 
@@ -185,7 +244,13 @@ struct GameView: View {
         } // ZStack
         .onAppear {
             self.champVM.resetGameState()
-            playBackgroundMusic(music: "SR - Early Game")
+            if self.gameMode == "ranked" {
+                playBackgroundMusic(music: "SR - Late Game")
+                
+            } else {
+                playBackgroundMusic(music: "SR - Early Game")
+            }
+            
         }
         .onDisappear {
             backgroundMusicPlayer?.stop()

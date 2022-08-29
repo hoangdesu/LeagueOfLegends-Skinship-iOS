@@ -74,8 +74,17 @@ struct HomeView: View {
             .padding()
             .padding(.top, 50)
             .padding(.bottom, 20)
+//            .overlay(
+//                Image(systemName: !self.isMuted ? "speaker.slash" : "speaker")
+//                    .font(.system(size: 20, weight: .regular, design: .rounded))
+//                    .onTapGesture {
+//                        self.isMuted.toggle()
+//                    }
+//            )
             
         }
+        
+            
     }
 }
 

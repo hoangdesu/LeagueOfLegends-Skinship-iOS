@@ -17,7 +17,6 @@ struct SplashScreenView: View {
     let video = "intro"
     @State var introPlayer = AVPlayer()
     
-    
     var body: some View {
         ZStack {
             Color(.black)
