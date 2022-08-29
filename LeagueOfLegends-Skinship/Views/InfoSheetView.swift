@@ -5,6 +5,17 @@
 //  Created by ドロケ on 27/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ Acknowledgement: https://github.com/zydeico/SlotMachine
+ */
+
 import SwiftUI
 
 struct InfoSheetView: View {
@@ -20,12 +31,11 @@ struct InfoSheetView: View {
     @State private var showResetHighscoreAlert = false
     @State private var showHighscoreHasBeenResetAlert = false
     
-    
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             CoverView()
+            
             NavigationView {
-                
                 Form {
                     Section(header: Text("Settings")) {
                         Text("Background music volume: \(Int(self.champVM.backgroundMusicVolume / 1.0 * 100))")
@@ -53,6 +63,7 @@ struct InfoSheetView: View {
                         })
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                     }
+                    
                     Section(header: Text("About this game")) {
                         FormRowView(firstItem: "App name", secondItem: "League of Legends: Skinship")
                         FormRowView(firstItem: "iOS version", secondItem: "15.5")
@@ -79,7 +90,6 @@ struct InfoSheetView: View {
                         FormRowView(firstItem: "Assets by", secondItem: "Riot Games")
                         FormRowView(firstItem: "Version", secondItem: "1.0.0")
                     }
-                    
                 }
                 .font(.system(.body, design: .rounded))
             }}
@@ -97,11 +107,6 @@ struct InfoSheetView: View {
                 .padding(.trailing, 20)
                 .accentColor(Color.secondary), alignment: .topTrailing
         )
-        .onAppear(perform: {
-            //            playSound(sound: "background-music", type: "mp3")
-            //            playSound(sound: "summonersRift", type: "mp3", volume: self.champVM.backgroundMusicVolume)
-        })
-        //
         .alert("Warning!", isPresented: $showResetHighscoreAlert, actions: {
             Button("Reset", role: .destructive) {
                 self.champVM.highscore = 0

@@ -5,6 +5,16 @@
 //  Created by ドロケ on 25/08/2022.
 //
 
+/*
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Hoang Nguyen
+ ID: s3697305
+ Last modified: 29/08/2022
+ */
+
 import SwiftUI
 
 struct GameView: View {
@@ -16,44 +26,31 @@ struct GameView: View {
     @Binding var appState: String
     @Binding var gameMode: String
     
-    
     @State private var showInfoSheet = false
     @State private var showTopPlayerAlert = false
     @State private var showResetGameAlert = false
     @State private var isMuted = false
     @State private var showConfirmExitRankedGameAlert = false
     
-    
-    
     // MARK: - FUNCTIONS
-    
     func buttonTapHandler(choice: Champion) {
         self.champVM.gamePlayController(choice: choice, gameMode: self.gameMode)
     }
     
-    
-    // MARK: - VIEW
+    // MARK: - GAME VIEW
     var body: some View {
         
         ZStack {
             Image(self.gameMode == "ranked" ? "summonersRift" : "twistedTreeLine")
-            
                 .resizable()
-            
                 .aspectRatio(contentMode: .fill)
                 .opacity(0.9)
                 .blur(radius: 4)
                 .ignoresSafeArea()
                 .scaleEffect(1.2)
             
-            
             VStack {
-                //                                Color(.red)
-                //                Text("Score: \(self.champVM.score)")
-                
-                
                 VStack {
-                    
                     // MARK: - Header
                     HStack(alignment: .center) {
                         // home
@@ -78,12 +75,6 @@ struct GameView: View {
                         
                         HStack(spacing: 20) {
                             
-                            // game mode
-                            //                            Text("\(self.gameMode.capitalized) mode")
-                            //                                .font(.headline)
-                            //                                .foregroundColor(self.gameMode == "ranked" ? .red : .yellow)
-                            //                                .shadow(color: .white, radius: 5, x: 0, y: 0)
-                            
                             // reset game
                             Button(action: {
                                 withAnimation {
@@ -107,24 +98,22 @@ struct GameView: View {
                                 // playing
                                 if self.champVM.backgroundMusicVolume > 0 {
                                     self.champVM.backgroundMusicVolume = 0
-                                    
                                     self.isMuted = true
                                 } else {
                                     self.champVM.backgroundMusicVolume = 0.69
                                     self.isMuted = false
                                 }
                                 backgroundMusicPlayer?.setVolume(Float(self.champVM.backgroundMusicVolume), fadeDuration: 0.0)
-                                
                             }) {
                                 Image(systemName: self.isMuted ? "speaker.slash" : "speaker.2")
                             }
                             .modifier(ButtonModifier())
-                            
                         }
                     }
                     .frame(width: 350)
                     .offset(y: -5)
                     .padding(.horizontal)
+                    
                     // reset game alert
                     .alert("Do you want to reset game?", isPresented: $showResetGameAlert) {
                         Button("Reset", role: .destructive) {
@@ -132,6 +121,7 @@ struct GameView: View {
                         }
                         Button("Cancel", role: .cancel) { }
                     }
+                    
                     // show confirm exit ranked game alert - only available in ranked mode
                     .alert("You are in ranked game.\nDo you want to exit the game?", isPresented: $showConfirmExitRankedGameAlert) {
                         Button("Exit", role: .destructive) {
@@ -182,11 +172,9 @@ struct GameView: View {
                             }
                         }
                     }}
-
                 
                 // MARK: - Play Card View
                 PlayCardView(champVM: self.champVM, gameMode: self.$gameMode)
-                
                 
                 // MARK: - Selections
                 VStack(spacing: 20) {
@@ -230,29 +218,22 @@ struct GameView: View {
                     }
                 } // VStack
                 .padding(.top, 10)
-            } // VStack
+            } // Body VStack
             .blur(radius: self.champVM.showRankedModeResultModal ? 5 : 0, opaque: false)
-            
             
             // MARK: - Pop Up
             if self.champVM.showRankedModeResultModal {
-                
                 ModalView(champVM: self.champVM)
             }
-            
-            
-            
             
         } // ZStack
         .onAppear {
             self.champVM.resetGameState()
             if self.gameMode == "ranked" {
                 playBackgroundMusic(music: "SR - Late Game")
-                
             } else {
                 playBackgroundMusic(music: "SR - Early Game")
             }
-            
         }
         .onDisappear {
             backgroundMusicPlayer?.stop()
@@ -260,13 +241,5 @@ struct GameView: View {
         .sheet(isPresented: $showInfoSheet) {
             InfoSheetView(champVM: self.champVM)
         }
-        
     }
-    
 }
-
-//struct GameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameView()
-//    }
-//}
