@@ -55,6 +55,14 @@ struct PlayCardView: View {
                             // dark magic happens here: swap the front with the back image at flip point
                             self.champVM.correctAnswer = self.champVM.currentChamp.name
                             self.champVM.currentChamp = self.champVM.nextChamp
+                            
+                            // for screenshot - Zed is love Zed is life 😍
+//                            for champ in champions {
+//                                if champ.name.lowercased() == "zed" {
+//                                    self.champVM.currentChamp = champ
+//                                }
+//                            }
+                            
                             champVM.generateNextChamp()
                             self.champVM.generateCurrentChampSkin()
                             self.champVM.generateNextChampSkin()
