@@ -1,9 +1,6 @@
 # League of Legends: Skinship (iOS)
 
-// TODO: README will be updated when I have more time. Here are some screenshots for the app:
-
-!
-[LoLSkinShip](assets/screenshots/1.png)
+// TODO: README will be updated when I have more time. Doc is available [here](https://github.com/hoangdesu/LeagueOfLegends-Skinship-iOS/blob/main/document.pdf). Here is some screenshots for the app:
 
 <img src="assets/screenshots/1.png" width="80%">
 
@@ -14,9 +11,6 @@
 |  <img src="assets/screenshots/5.png" width="300">  |  <img src="assets/screenshots/6.png" width="300">  |  
 |  <img src="assets/screenshots/7.png" width="300">  |  <img src="assets/screenshots/8.png" width="300">  |
 |  <img src="assets/screenshots/9.png" width="300">  |  <img src="assets/screenshots/10.png" width="300">  |
-
-
-
 
 ## Table of Contents
 
@@ -47,7 +41,7 @@
 
 # Demo video
 
-Full demo video on the iPhone 12: https://youtu.be/HMcu9xeMLvU
+Full demo video on the iPhone 12: https://www.youtube.com/watch?v=8ojc1XNDAZI
 
 [![Pokedex app demo](https://img.youtube.com/vi/8ojc1XNDAZI/0.jpg)](https://www.youtube.com/watch?v=8ojc1XNDAZI)
 <a name="acknowledgement"></a>
