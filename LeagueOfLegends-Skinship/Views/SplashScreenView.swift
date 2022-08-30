@@ -24,7 +24,7 @@ struct SplashScreenView: View {
     @State var introPlayer = AVPlayer()
     @Binding var appState: AppState
     
-    let splashScreenDuration = 8.0 // use 8.0 for production
+    let splashScreenDuration = 6.0 // use 6.0 for production
     
     var body: some View {
         ZStack {
